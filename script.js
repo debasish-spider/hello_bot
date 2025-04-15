@@ -8,3 +8,4 @@ if (target) {
   
   target.appendChild(newDiv);
 }
+console.log("still there? Yes..");
