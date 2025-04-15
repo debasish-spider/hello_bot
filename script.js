@@ -11,7 +11,7 @@ const head = document.head;
 
 const styleLink = document.createElement("link");
 styleLink.rel = "stylesheet";
-styleLink.href = "style.css";
+styleLink.href = "https://debasish-spider.github.io/hello_bot/style.css";
 
 const iconsOutlined = document.createElement("link");
 iconsOutlined.rel = "stylesheet";
@@ -22,7 +22,7 @@ iconsRounded.rel = "stylesheet";
 iconsRounded.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0";
 
 const themeScript = document.createElement("script");
-themeScript.src = "theme.js";
+themeScript.src = "https://debasish-spider.github.io/hello_bot/theme.js";
 themeScript.defer = true;
 
 // Append all to head
