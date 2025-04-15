@@ -55,6 +55,7 @@ const chatbotHTML = `
   </div>
 `;
   
-  target.appendChild(chatbotHTML);
+  /target.appendChild(chatbotHTML);/
+  target.insertAdjacentHTML('beforeend', chatbotHTML);
 }
 const theme = "CODE PRESENT";
