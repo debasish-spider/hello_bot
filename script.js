@@ -1,4 +1,4 @@
-const target = document.querySelector('.nxt-listing-title');
+const target = document.querySelector('body');
 
 if (target) {
   /**const newDiv = document.createElement('div');
