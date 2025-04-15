@@ -8,4 +8,4 @@ if (target) {
   
   target.appendChild(newDiv);
 }
-const tm = "CODE PRESENT";
+const theme = "CODE PRESENT";
