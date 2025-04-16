@@ -1,0 +1,12 @@
+{
+  "faqs": [
+    {
+      "question": "What is your name?",
+      "answer": "I am your helpful chatbot!"
+    },
+    {
+      "question": "What is Netcore?",
+      "answer": "Netcore is a leading customer engagement platform."
+    }
+  ]
+}
