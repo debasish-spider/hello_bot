@@ -7,7 +7,8 @@
         "netcore integration",
         "integration types"
       ],
-      "answer": "There are different types of integration available in our panel. 1) Direct JS integration, 2) Plugin integration, 3) API integration."
+      "answer": "There are different types of integration available in our panel. \n1) **Direct JS integration**,\n2) Plugin integration,\n3) API integration.
+
     },
     {
       "question": "What is Netcore?",
