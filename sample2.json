@@ -1,8 +1,13 @@
 {
   "faqs": [
     {
-      "question": "What is your name?",
-      "answer": "I am your helpful chatbot!"
+      "question": "Please help me with the Integration process",
+      "tags": [
+        "integration steps",
+        "netcore integration",
+        "integration types"
+      ],
+      "answer": "There are different types of integration available in our panel. 1) Direct JS integration, 2) Plugin integration, 3) API integration."
     },
     {
       "question": "What is Netcore?",
