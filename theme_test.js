@@ -1,7 +1,7 @@
 let faqData = null;
 
 // Load FAQ data from JSON file
-fetch("https://debasish-spider.github.io/hello_bot/sample.json")
+fetch("https://debasish-spider.github.io/hello_bot/sample2.json")
   .then(res => res.json())
   .then(data => {
     faqData = data;
