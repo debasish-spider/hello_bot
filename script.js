@@ -22,7 +22,7 @@ iconsRounded.rel = "stylesheet";
 iconsRounded.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0";
 
 const themeScript = document.createElement("script");
-themeScript.src = "https://debasish-spider.github.io/hello_bot/theme.js";
+themeScript.src = "https://debasish-spider.github.io/hello_bot/theme_test.js";
 themeScript.defer = true;
 
 // Append all to head
