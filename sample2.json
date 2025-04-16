@@ -1,18 +1,14 @@
 {
   "faqs": [
     {
-      "question": "Please help me with the Integration process",
-      "tags": [
-        "integration steps",
-        "netcore integration",
-        "integration types"
-      ],
-      "answer": "There are different types of integration available in our panel. \n1) **Direct JS integration**,\n2) Plugin integration,\n3) API integration.
-
+      "question": "What is Netcore?",
+      "tags": ["about netcore", "netcore intro"],
+      "answer": "Netcore is a leading customer engagement platform."
     },
     {
-      "question": "What is Netcore?",
-      "answer": "Netcore is a leading customer engagement platform."
+      "question": "How do I set it up?",
+      "tags": ["integration steps", "setup"],
+      "answer": "There are three ways to integrate: <br>1. Direct JS <br>2. Plugin <br>3. API Integration"
     }
   ]
 }
