@@ -1,14 +1,3 @@
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body {
-  background: #E3F2FD;
-}
 .chatbot-toggler {
   position: fixed;
   bottom: 30px;
@@ -24,6 +13,7 @@ body {
   border-radius: 50%;
   background: #724ae8;
   transition: all 0.2s ease;
+  z-index: 999;
 }
 body.show-chatbot .chatbot-toggler {
   transform: rotate(90deg);
@@ -54,6 +44,7 @@ body.show-chatbot .chatbot-toggler span:last-child {
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
               0 32px 64px -48px rgba(0,0,0,0.5);
   transition: all 0.1s ease;
+  z-index: 9999;
 }
 body.show-chatbot .chatbot {
   opacity: 1;
