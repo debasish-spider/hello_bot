@@ -3,12 +3,14 @@
     {
       "question": "What is Netcore?",
       "tags": ["about netcore", "netcore intro"],
-      "answer": "Netcore is a leading customer engagement platform."
+      "answer": "Netcore is a leading customer engagement platform.",
+      "suggestion": "true"
     },
     {
       "question": "How do I set it up?",
       "tags": ["integration steps", "setup"],
-      "answer": "There are three ways to integrate: <br>1. Direct JS <br>2. Plugin <br>3. API Integration"
+      "answer": "There are three ways to integrate: <br>1. Direct JS <br>2. Plugin <br>3. API Integration",
+      "suggestion": "true"
     }
   ]
 }
