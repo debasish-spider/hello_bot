@@ -3,74 +3,116 @@ const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
-let userMessage = null; // Variable to store user's message
+
+let userMessage = null;
 const inputInitHeight = chatInput.scrollHeight;
-// API configuration
-const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM"; // Your API key here
+
+let faqData = [];
+
+// Load JSON
+fetch("https://debasish-spider.github.io/hello_bot/sample2.json")
+  .then(res => res.json())
+  .then(data => {
+    faqData = data.faqs || [];
+    showInitialSuggestions(); // show suggestions once data is ready
+  })
+  .catch(err => console.error("Failed to load FAQ data", err));
+
+const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+// Utility: Create a chat bubble
 const createChatLi = (message, className) => {
-  // Create a chat <li> element with passed message and className
-  const chatLi = document.createElement("li");
-  chatLi.classList.add("chat", `${className}`);
-  let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
-  chatLi.innerHTML = chatContent;
-  chatLi.querySelector("p").textContent = message;
-  return chatLi; // return chat <li> element
-}
-const generateResponse = async (chatElement) => {
-  const messageElement = chatElement.querySelector("p");
-  // Define the properties and message for the API request
+  const li = document.createElement("li");
+  li.classList.add("chat", className);
+  const content = className === "outgoing"
+    ? `<p>${message}</p>`
+    : `<span class="material-symbols-outlined">smart_toy</span><p>${message}</p>`;
+  li.innerHTML = content;
+  return li;
+};
+
+// Utility: Format text (bullets & line breaks)
+const formatText = (text) => {
+  return text
+    .replace(/\n/g, "<br>")
+    .replace(/(\d+\.\s)/g, "<br>$1")
+    .replace(/(\•\s)/g, "<br>$1");
+};
+
+// Initial Suggestions
+const showInitialSuggestions = () => {
+  const suggestions = faqData.filter(item => item.suggestion === "true");
+  if (suggestions.length) {
+    const lines = suggestions.map(s => `• ${s.question}`).join("<br>");
+    const welcomeMsg = `You can choose from below:<br><br>${lines}`;
+    chatbox.appendChild(createChatLi(welcomeMsg, "incoming"));
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+  }
+};
+
+// Gemini Response Only from FAQ
+const getGeminiResponseFromFAQ = async (chatElement) => {
+  const p = chatElement.querySelector("p");
+
+  const contextText = faqData.map((item, idx) => {
+    return `Q: ${item.question}\nTags: ${(item.tags || []).join(', ')}\nA: ${item.answer}`;
+  }).join("\n\n");
+
+  const prompt = `You are a helpful assistant. Only answer using the following FAQs. If the question is not related to them, respond with "Sorry, I couldn't find an answer for that."
+
+FAQs:
+${contextText}
+
+User asked: ${userMessage}
+Answer:`;
+
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ 
-      contents: [{ 
-        role: "user", 
-        parts: [{ text: userMessage }] 
-      }] 
+    body: JSON.stringify({
+      contents: [{ role: "user", parts: [{ text: prompt }] }]
     }),
-  }
-  // Send POST request to API, get response and set the reponse as paragraph text
+  };
+
   try {
-    const response = await fetch(API_URL, requestOptions);
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
-    
-    // Get the API response text and update the message element
-    messageElement.textContent = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
-  } catch (error) {
-    // Handle error
-    messageElement.classList.add("error");
-    messageElement.textContent = error.message;
+    const res = await fetch(API_URL, requestOptions);
+    const data = await res.json();
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find an answer.";
+    p.innerHTML = formatText(reply);
+  } catch (err) {
+    p.innerHTML = "Error: " + err.message;
   } finally {
     chatbox.scrollTo(0, chatbox.scrollHeight);
   }
-}
+};
+
+// Chat submission handler
 const handleChat = () => {
-  userMessage = chatInput.value.trim(); // Get user entered message and remove extra whitespace
+  userMessage = chatInput.value.trim();
   if (!userMessage) return;
-  // Clear the input textarea and set its height to default
+
   chatInput.value = "";
   chatInput.style.height = `${inputInitHeight}px`;
-  // Append the user's message to the chatbox
+
   chatbox.appendChild(createChatLi(userMessage, "outgoing"));
   chatbox.scrollTo(0, chatbox.scrollHeight);
+
   setTimeout(() => {
-    // Display "Thinking..." message while waiting for the response
-    const incomingChatLi = createChatLi("Thinking...", "incoming");
-    chatbox.appendChild(incomingChatLi);
+    const botLi = createChatLi("Thinking...", "incoming");
+    chatbox.appendChild(botLi);
     chatbox.scrollTo(0, chatbox.scrollHeight);
-    generateResponse(incomingChatLi);
-  }, 600);
-}
+
+    getGeminiResponseFromFAQ(botLi);
+  }, 500);
+};
+
+// UI Handlers
 chatInput.addEventListener("input", () => {
-  // Adjust the height of the input textarea based on its content
   chatInput.style.height = `${inputInitHeight}px`;
   chatInput.style.height = `${chatInput.scrollHeight}px`;
 });
 chatInput.addEventListener("keydown", (e) => {
-  // If Enter key is pressed without Shift key and the window 
-  // width is greater than 800px, handle the chat
   if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
     e.preventDefault();
     handleChat();
