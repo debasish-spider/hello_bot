@@ -62,7 +62,7 @@ const showInitialSuggestions = () => {
   welcomeLi.classList.add("chat", "incoming");
   welcomeLi.innerHTML = `
     <span class="material-symbols-outlined">smart_toy</span>
-    <p>Hi there,<br>How can I help you today? You can choose from below:</p>`;
+    <p>Hi there,<br>How can I help you today? You can choose from the suggestions below:</p>`;
   chatbox.appendChild(welcomeLi);
 
   const suggestionLi = document.createElement("li");
