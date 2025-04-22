@@ -18,12 +18,12 @@
       "qid": "2-1",
       "question": "Direct JS",
       "tags": ["web sdk integration instructions", "direct js integration", "direct js implementation"],
-      "answer": "Here are the steps for direct js implementation",
+      "answer": "There are two steps for direct js implementation: <br>1. Add Website in Netcore CE <br>2. Add Netcore CE JavaScript to your Website",
       "suggestion": "true"
     },
     {
       "qid": "2-1-1",
-      "question": "Add your Website in Netcore CE",
+      "question": "Add Website in Netcore CE",
       "tags": ["assets creation", "base js creation"],
       "answer": "Here are the steps: <br>1. Navigate to the Assets section<br>2. Click on 'Web' and then 'Add a website'<br>3. Choose between 'Standard' and 'Shopify'. If your site is on Shopify, refer to the Shopify Integration documentation<br>4. For Standard sites, select the Domain Type (HTTP/HTTPS) and enter the Website URL<br>5. HTTPS is required for sending Web Push Notifications. If initially HTTP, it must be configured later to HTTPS.<br>6. Ensure the correct domain prefix and whether 'www' is included",
       "suggestion": "false"
@@ -31,7 +31,7 @@
     
     {
       "qid": "2-1-2",
-      "question": "Add Netcore CE JavaScript to your Website",
+      "question": "Add Netcore CE JavaScript to Website",
       "tags": ["base js placement", "base js implementation"],
       "answer": "Here are the steps: <br>1. Integration can be done via Direct JS Integration or JS Integration via GTM<br>2. After adding the website, enable linking between websites to allow data flow",
       "suggestion": "false"
