@@ -194,8 +194,8 @@ li.chat.incoming+.incoming {
   
   .suggestion-btn {
     padding: 6px 10px;
-    border: 1px solid #F0D8A7;
-    background: #F0D8A7;
+    border: 1px solid #ffcf5c;
+    background: #ffcf5c;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -204,7 +204,7 @@ li.chat.incoming+.incoming {
   }
   
   .suggestion-btn:hover {
-    background: #f3ca75;
+    background: #ffcf5c;
   }
 
   .chat-input textarea::placeholder {
@@ -226,11 +226,12 @@ li.chat.incoming+.incoming {
     transition: opacity 0.3s ease;
   }
   li.chat.incoming p {
-    background: #ecf2ff;
+    background: #143f93;
+    color: #fff;
   }
   li.chat.outgoing p{
-    background: #A7F0B4;
-    color: #000;
+    background: #fe8c90;
+    color: #fff;
   }
   button.suggestion-btn:before {
     content: '🔎';
