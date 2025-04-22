@@ -238,3 +238,6 @@ li.chat.incoming+.incoming {
     content: '🔎';
     padding-right: 6px;
   }
+.chatbot ::placeholder {
+    color: #000;
+}
