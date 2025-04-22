@@ -43,10 +43,7 @@ const chatbotHTML = `
       <span class="close-btn material-symbols-outlined">close</span>
     </header>
     <ul class="chatbox">
-      <li class="chat incoming">
-        <span class="material-symbols-outlined">smart_toy</span>
-        <p>Hi there <br>How can I help you today?</p>
-      </li>
+      
     </ul>
     <div class="chat-input">
       <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
