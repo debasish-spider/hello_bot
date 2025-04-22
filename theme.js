@@ -147,7 +147,7 @@ You are a helpful support bot. Based on the FAQs and mappings below:
 - If the matched question has children (based on mapping), also return their QIDs in a section called "Follow-up".
 
 Format response like:
-Answer: [the answer here]
+[the answer here]
 Follow-up: [list of QIDs like 2-1, 2-2]
 
 FAQs:
