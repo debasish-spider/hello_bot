@@ -1,14 +1,4 @@
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body {
-  background: #E3F2FD;
-}
+
 .chatbot-toggler {
   position: fixed;
   bottom: 30px;
@@ -204,8 +194,8 @@ li.chat.incoming+.incoming {
   
   .suggestion-btn {
     padding: 6px 10px;
-    border: 1px solid #ecf2ff;
-    background: #ecf2ff;
+    border: 1px solid #F0D8A7;
+    background: #F0D8A7;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -214,7 +204,7 @@ li.chat.incoming+.incoming {
   }
   
   .suggestion-btn:hover {
-    background: #e0e0e0;
+    background: #f3ca75;
   }
 
   .chat-input textarea::placeholder {
@@ -236,10 +226,11 @@ li.chat.incoming+.incoming {
     transition: opacity 0.3s ease;
   }
   li.chat.incoming p {
-    background: #a7bff0;
+    background: #ecf2ff;
   }
   li.chat.outgoing p{
-    background: #fc5e01;
+    background: #A7F0B4;
+    color: #000;
   }
   button.suggestion-btn:before {
     content: '🔎';
