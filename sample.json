@@ -1,35 +1,30 @@
 {
-  "title": "Web SDK Integration Instructions",
-  "steps": [
-    {
-      "step": "Step 1: Add your Website in Netcore CE",
-      "instructions": [
-        "Login to your Netcore CE Panel and navigate to the Assets section.",
-        "Click on 'Web' and then 'Add a website'.",
-        "Choose between 'Standard' and 'Shopify'. If your site is on Shopify, refer to the Shopify Integration documentation.",
-        "For Standard sites, select the Domain Type (HTTP/HTTPS) and enter the Website URL.",
-        "HTTPS is required for sending Web Push Notifications. If initially HTTP, it must be configured later to HTTPS.",
-        "Ensure the correct domain prefix and whether 'www' is included."
-      ]
-    },
-    {
-      "step": "Step 2: Add Netcore CE Javascript to your Website",
-      "instructions": [
-        "Integration can be done via Direct JS Integration or JS Integration via GTM.",
-        "After adding the website, enable linking between websites to allow data flow."
-      ]
-    }
-  ],
-  "features": {
-    "description": "Features Available After Integration",
-    "list": [
-      "Customer Engagement Channels: Web Push Notifications & Web Messages.",
-      "User & Event Tracking.",
-      "Product Experience Management."
-    ]
+"mapping": [
+  {
+    "qid": "1",
+    "parent": null,
+    "children": null
   },
-  "notes": "This document serves as a step-by-step guide for integrating the Netcore Web SDK into your website, detailing necessary preliminary steps, choosing domain types, and methods of Javascript integration. For further assistance, related documentation and examples are available through provided links on the page.",
-  "resources": {
-    "Documentation URL": "https://developer.netcorecloud.com/docs/web-sdk-integration"
+  {
+    "qid": "2",
+    "parent": null,
+    "children": ["2-1", "2-2", "2-3"]
+  },
+  {
+    "qid": "2-1",
+    "parent": "2",
+    "children": ["2-1-1", "2-1-2"]
+  },
+  {
+    "qid": "2-1-1",
+    "parent": "2-1",
+    "children": null
+  },
+  
+  {
+    "qid": "2-1-2",
+    "parent": "2-1",
+    "children": null
   }
+]
 }
