@@ -26,7 +26,7 @@ fetch("https://debasish-spider.github.io/hello_bot/sample2.json")
 
 const startRotatingPlaceholders = () => {
   const suggestedQuestions = faqData.filter(f => f.suggestion === "true").map(f => f.question);
-  if (suggestedQuestions.length === 0) return;
+  if (!suggestedQuestions.length) return;
 
   const deletePlaceholder = (text, index) => {
     if (userInteracted) return;
@@ -100,15 +100,20 @@ const formatText = (text) => {
 };
 
 const showFollowupSuggestions = (qids) => {
+  const newSuggestions = qids
+    .map(id => {
+      const faq = faqData.find(f => f.qid === id);
+      return faq ? faq.question : null;
+    })
+    .filter(Boolean);
+
+  if (!newSuggestions.length) return;
+
   const suggestionLi = document.createElement("li");
   suggestionLi.classList.add("chat", "incoming", "suggestion-group");
 
-  const buttonsHtml = qids
-    .map(id => {
-      const faq = faqData.find(f => f.qid === id);
-      if (!faq) return "";
-      return `<button class="suggestion-btn">${faq.question}</button>`;
-    })
+  const buttonsHtml = newSuggestions
+    .map(q => `<button class="suggestion-btn">${q}</button>`)
     .join(" ");
 
   suggestionLi.innerHTML = `<span class="material-symbols-outlined">smart_toy</span><div class="suggestion-buttons">${buttonsHtml}</div>`;
@@ -202,6 +207,7 @@ const handleChat = () => {
   }, 500);
 };
 
+// Events
 chatInput.addEventListener("input", () => {
   if (!userInteracted) {
     userInteracted = true;
@@ -215,6 +221,5 @@ chatInput.addEventListener("keydown", (e) => {
     handleChat();
   }
 });
-
 closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
