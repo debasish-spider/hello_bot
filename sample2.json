@@ -38,14 +38,14 @@
     },
     {
       "qid": "2-2",
-      "question": "Via Plugin",
+      "question": "Integrate via plugin",
       "tags": ["plugin integration"],
       "answer": "",
       "suggestion": "false"
     },
     {
       "qid": "2-3",
-      "question": "API integration",
+      "question": "Integrate via API",
       "tags": ["API integration"],
       "answer": "",
       "suggestion": "false"
