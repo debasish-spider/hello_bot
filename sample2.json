@@ -9,14 +9,14 @@
     },
     {
       "qid": "2",
-      "question": "How do I set it up?",
+      "question": "Start with website integration",
       "tags": ["integration steps", "setup"],
       "answer": "There are three ways to integrate: <br>1. Direct JS <br>2. Via Plugin <br>3. API Integration",
       "suggestion": "true"
     },
     {
       "qid": "2-1",
-      "question": "Direct JS",
+      "question": "How to integrate Smartech JS",
       "tags": ["web sdk integration instructions", "direct js integration", "direct js implementation"],
       "answer": "There are two steps for direct js implementation: <br>1. Add Website in Netcore CE <br>2. Add Netcore CE JavaScript to your Website",
       "suggestion": "true"
