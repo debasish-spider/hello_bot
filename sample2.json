@@ -25,7 +25,7 @@
       "qid": "2-1-1",
       "question": "Add Website in Netcore CE",
       "tags": ["assets creation", "base js creation"],
-      "answer": "Here are the steps: <br>1. Navigate to the Assets section<br>2. Click on 'Web' and then 'Add a website'<br>3. Choose between 'Standard' and 'Shopify'. If your site is on Shopify, refer to the Shopify Integration documentation<br>4. For Standard sites, select the Domain Type (HTTP/HTTPS) and enter the Website URL<br>5. HTTPS is required for sending Web Push Notifications. If initially HTTP, it must be configured later to HTTPS.<br>6. Ensure the correct domain prefix and whether 'www' is included",
+      "answer": "Here are the steps: <br>1. Click on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<br>3. Select the Domain Type (HTTP/HTTPS) and enter the Website UR and save<br>4. Ensure the correct domain prefix and whether 'www' is included",
       "suggestion": "false"
     },
     
