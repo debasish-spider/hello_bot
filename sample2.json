@@ -54,7 +54,7 @@
       "qid": "3",
       "question": "Can we migrate the existing FCM token to netcore",
       "tags": ["fcm migration", "existing fcm"],
-      "answer": "If you have the FCM credentials as well as the project, using those credentials you can set up configuration in Netcore",
+      "answer": "You can use your existing FCM credentials with Netcore Smartech to enable the browser push notification for your website.",
       "suggestion": "false"
     }
   ]
