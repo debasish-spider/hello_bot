@@ -49,6 +49,13 @@
       "tags": ["API integration"],
       "answer": "",
       "suggestion": "false"
+    },
+    {
+      "qid": "3",
+      "question": "Can we migrate the existing FCM token to netcore",
+      "tags": ["fcm migration", "existing fcm"],
+      "answer": "If you have the FCM credentials as well as the project, using those credentials you can set up configuration in Netcore",
+      "suggestion": "false"
     }
   ]
 }
