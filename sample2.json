@@ -56,6 +56,48 @@
       "tags": ["fcm migration", "existing fcm"],
       "answer": "You can use your existing FCM credentials with Netcore Smartech to enable the browser push notification for your website.",
       "suggestion": "false"
+    },
+    {
+      "qid": "4",
+      "question": "What is Web Customer Engagement User?",
+      "answer": "Web Customer Engagement User refers to the implementation of Netcore's Web SDK to enhance user engagement on web platforms. It encompasses features like push notifications, in-app messages, and user tracking.",
+      "tags": ["web", "customer engagement", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "4-1",
+      "question": "How to configure FCM for Web SDK?",
+      "answer": "To configure Firebase Cloud Messaging (FCM) for Netcore's Web SDK, you need to set up your Firebase project, obtain the necessary credentials, and integrate them into the Netcore platform. This enables push notification capabilities for your web application.",
+      "tags": ["fcm", "web sdk", "push notifications"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "4-2",
+      "question": "How to configure APNs for Web SDK?",
+      "answer": "Configuring Apple Push Notification service (APNs) for Netcore's Web SDK involves setting up your Apple developer account, generating the required certificates, and integrating them into the Netcore platform to enable push notifications for Safari users.",
+      "tags": ["apns", "web sdk", "push notifications"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "4-3",
+      "question": "How to ensure coexistence with 3rd party JavaScript?",
+      "answer": "To ensure Netcore's Web SDK coexists with third-party JavaScript libraries, it's essential to manage namespace conflicts, load scripts asynchronously, and follow best practices to prevent integration issues.",
+      "tags": ["third-party js", "integration", "web sdk"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "4-4",
+      "question": "How to migrate subscribers in Web SDK?",
+      "answer": "Migrating subscribers in Netcore's Web SDK involves exporting existing subscriber data, formatting it according to Netcore's requirements, and importing it into the platform to maintain continuity in user engagement.",
+      "tags": ["subscriber migration", "web sdk", "data import"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "4-5",
+      "question": "What are the migration steps for FCM v8.7.0?",
+      "answer": "Migrating to FCM version 8.7.0 requires updating your Firebase project settings, modifying your web application's service worker, and ensuring compatibility with the latest FCM features as outlined in Netcore's migration guide.",
+      "tags": ["fcm", "migration", "web sdk"],
+      "suggestion": "false"
     }
   ]
 }
