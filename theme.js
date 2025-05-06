@@ -222,7 +222,7 @@ const enableImagePopups = () => {
       popup.style.display = 'flex';
       popup.style.alignItems = 'center';
       popup.style.justifyContent = 'center';
-      popup.style.zIndex = '99999';
+      popup.style.zIndex = '999999';
       popup.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%; border: 4px solid white; border-radius: 8px;">`;
       popup.onclick = () => document.body.removeChild(popup);
       document.body.appendChild(popup);
