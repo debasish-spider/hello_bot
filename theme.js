@@ -131,7 +131,9 @@ const showFollowupSuggestions = (qids) => {
 const getGeminiResponse = async (chatElement) => {
   const p = chatElement.querySelector("p");
 
-  const faqContext = faqData.map(f => {
+  const faqContext = faqData
+  .filter(f => f.answer && f.answer.trim() !== "")
+  .map(f => {
     return `QID: ${f.qid}\nQ: ${f.question}\nTags: ${(f.tags || []).join(", ")}\nA: ${f.answer}`;
   }).join("\n\n");
 
