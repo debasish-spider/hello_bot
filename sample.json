@@ -54,6 +54,41 @@
       "qid": "4-5",
       "parent": "4",
       "children": null
+    },
+    {
+      "qid": "6",
+      "parent": null,
+      "children": ["6-1", "6-2"]
+    },
+    {
+      "qid": "6-1",
+      "parent": "6",
+      "children": null
+    },
+    {
+      "qid": "6-2",
+      "parent": "6",
+      "children": null
+    },
+    {
+      "qid": "7",
+      "parent": null,
+      "children": ["7-1", "7-2"]
+    },
+    {
+      "qid": "7-1",
+      "parent": "7",
+      "children": null
+    },
+    {
+      "qid": "7-2",
+      "parent": "7",
+      "children": null
+    },
+    {
+      "qid": "8",
+      "parent": null,
+      "children": null
     }
 ]
 }
