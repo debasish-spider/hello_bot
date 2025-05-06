@@ -251,7 +251,7 @@
       "qid": "2-1-2",
       "question": "How to integrate on GTM",
       "tags": ["gtm integration", "gtm setup"],
-      "answer": "There are two steps for GTM setup",
+      "answer": "There are five steps for GTM setup<br>1. Add Account & Container<br><img src='https://files.readme.io/a8b06aa-GTM_manager.png' class='popup-image'>",
       "suggestion": "false"
     }
   ]
