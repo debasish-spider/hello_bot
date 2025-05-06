@@ -98,6 +98,55 @@
       "answer": "Migrating to FCM version 8.7.0 requires updating your Firebase project settings, modifying your web application's service worker, and ensuring compatibility with the latest FCM features as outlined in Netcore's migration guide.",
       "tags": ["fcm", "migration", "web sdk"],
       "suggestion": "false"
+    },
+    {
+      "qid": "6",
+      "question": "What is Web User and Event Tracking?",
+      "answer": "Web User and Event Tracking involves monitoring user behaviors and interactions on your website using Netcore's Web SDK. This data helps in building user profiles and segmenting audiences for targeted engagement.",
+      "tags": ["web sdk", "user tracking", "event tracking"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "6-1",
+      "question": "How to implement User Tracking?",
+      "answer": "To implement User Tracking, integrate Netcore's Web SDK into your website and configure it to capture user information such as login status, user ID, and other relevant attributes. This enables personalized user experiences and targeted campaigns.",
+      "tags": ["user tracking", "web sdk", "personalization"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "6-2",
+      "question": "How to implement Event Tracking?",
+      "answer": "Event Tracking involves capturing user interactions like clicks, form submissions, and page views. By configuring Netcore's Web SDK to log these events, you can analyze user behavior and optimize your website accordingly.",
+      "tags": ["event tracking", "analytics", "web sdk"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "7",
+      "question": "What is Web SDK Product Experience?",
+      "answer": "Web SDK Product Experience allows you to enhance user engagement by implementing features like nudges, in-app messages, and A/B testing. It helps in guiding users through your website and improving conversion rates.",
+      "tags": ["product experience", "web sdk", "user engagement"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "7-1",
+      "question": "How to define actions in Product Experience?",
+      "answer": "Defining actions involves setting up specific user interactions or triggers within your website that prompt certain responses, such as displaying a nudge or in-app message. This is configured through the Netcore dashboard.",
+      "tags": ["defining actions", "product experience", "web sdk"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "7-2",
+      "question": "How to implement A/B Testing and Feature Management?",
+      "answer": "A/B Testing and Feature Management allow you to test different versions of your website or features to determine which performs better. Using Netcore's Web SDK, you can configure experiments and manage feature rollouts effectively.",
+      "tags": ["a/b testing", "feature management", "web sdk"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "8",
+      "question": "How to integrate Web SDK via Google Tag Manager (GTM)?",
+      "answer": "Integrating Netcore's Web SDK via GTM involves adding the SDK script to your GTM container and configuring the necessary triggers and variables. This method simplifies the integration process without modifying your website's codebase.",
+      "tags": ["gtm", "web sdk", "integration"],
+      "suggestion": "true"
     }
   ]
 }
