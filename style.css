@@ -242,3 +242,9 @@ li.chat.incoming+.incoming {
 .chatbot ::placeholder {
     color: #000;
 }
+.popup-image {
+  max-width: 100%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
