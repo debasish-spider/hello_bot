@@ -147,6 +147,83 @@
       "answer": "Integrating Netcore's Web SDK via GTM involves adding the SDK script to your GTM container and configuring the necessary triggers and variables. This method simplifies the integration process without modifying your website's codebase.",
       "tags": ["gtm", "web sdk", "integration"],
       "suggestion": "true"
+    },
+    {
+      "qid": "9",
+      "question": "What are Smartech APIs?",
+      "answer": "Smartech APIs provide a comprehensive set of endpoints to manage and automate various aspects of your customer engagement strategies, including audience management, campaigns, templates, and more.",
+      "tags": ["smartech", "apis", "netcore"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "9-1",
+      "question": "What is the Audience API?",
+      "answer": "The Audience API allows you to manage your audience data, including creating and managing lists and segments, exporting data, and handling user schemas.",
+      "tags": ["audience", "api", "netcore"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-2",
+      "question": "What are the Functional APIs?",
+      "answer": "Functional APIs, also known as Contact APIs, enable you to perform operations such as adding, updating, and removing contacts, as well as managing contact lists and blacklists.",
+      "tags": ["functional", "contact", "api"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-3",
+      "question": "What are the List APIs?",
+      "answer": "List APIs provide functionalities to create, update, and manage contact lists, helping you organize your audience effectively.",
+      "tags": ["list", "api", "netcore"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-4",
+      "question": "What are the Campaign APIs?",
+      "answer": "Campaign APIs allow you to create, manage, and monitor various campaigns, including email, SMS, and push notifications, facilitating automated customer engagement.",
+      "tags": ["campaign", "api", "netcore"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-5",
+      "question": "What is the Email Template API?",
+      "answer": "The Email Template API enables you to create, update, and manage email templates, ensuring consistent and personalized communication with your audience.",
+      "tags": ["email", "template", "api"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-6",
+      "question": "What is the App Push Notification Campaign API?",
+      "answer": "This API allows you to create and manage push notification campaigns for your mobile applications, enhancing real-time user engagement.",
+      "tags": ["app", "push", "notification", "api"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-7",
+      "question": "What are the UDT APIs?",
+      "answer": "UDT (User Defined Table) APIs enable you to create and manage custom data tables, allowing for more flexible data storage and retrieval tailored to your business needs.",
+      "tags": ["udt", "user defined table", "api"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-8",
+      "question": "What is the Activity API?",
+      "answer": "The Activity API provides access to user activity data, helping you track and analyze user interactions for better engagement strategies.",
+      "tags": ["activity", "api", "netcore"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-9",
+      "question": "What are the GDPR APIs?",
+      "answer": "GDPR APIs assist in managing user data privacy preferences, ensuring compliance with data protection regulations by handling opt-ins, opt-outs, and data deletion requests.",
+      "tags": ["gdpr", "privacy", "api"],
+      "suggestion": "false"
+    },
+    {
+      "qid": "9-10",
+      "question": "What is the Trigger Push Notifications API?",
+      "answer": "This API allows you to send real-time push notifications to users based on specific triggers or events, enhancing timely and relevant communication.",
+      "tags": ["trigger", "push", "notification", "api"],
+      "suggestion": "false"
     }
   ]
 }
