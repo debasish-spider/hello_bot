@@ -251,7 +251,7 @@
       "qid": "2-1-2",
       "question": "How to integrate on GTM",
       "tags": ["gtm integration", "gtm setup"],
-      "answer": "There are five steps for GTM setup<br>1. Add Account & Container<br><img src='https://files.readme.io/a8b06aa-GTM_manager.png' class='popup-image'>",
+      "answer": "There are five steps for GTM setup<br>1. Add Account & Container<br><img src='https://files.readme.io/a8b06aa-GTM_manager.png' class='popup-image'><br>2. Install Google Tag Manager<br><img src='https://files.readme.io/9d987bb-GTM_manager_2.png' class='popup-image'><br>Upon creating of account & container GTM prompts the user with couple of Java Script snippets which needs to be embedded into the source code of the website.<br>Click <a href='https://developer.netcorecloud.com/docs/js-integration-via-gtm'>here</a> to get the code.<br>3. Tags<br> In order to create a new tag navigate to Tags menu and select NEW –> Click Tag Configuration –> Select Custom HTML. While a tag is created we have to select/create a trigger associated with the tag which says deploy the tag on the defined trigger. Below screenshot is a Generic Page Browse tag and trigger is on all pages.<br><img src='https://files.readme.io/d305627-GTM_manager_4.png' class='popup-image'>",
       "suggestion": "false"
     }
   ]
