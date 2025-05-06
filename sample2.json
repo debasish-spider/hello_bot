@@ -164,8 +164,8 @@
     },
     {
       "qid": "9-2",
-      "question": "What are the Functional APIs?",
-      "answer": "Functional APIs, also known as Contact APIs, enable you to perform operations such as adding, updating, and removing contacts, as well as managing contact lists and blacklists.",
+      "question": "What are the Contact APIs?",
+      "answer": "Contact APIs, also known as Functional APIs, enable you to perform operations such as adding, updating, and removing contacts, as well as managing contact lists and blacklists.",
       "tags": ["functional", "contact", "api"],
       "suggestion": "false"
     },
