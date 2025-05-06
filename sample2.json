@@ -223,14 +223,14 @@
       "qid": "2-1-1-2",
       "question": "Add Netcore CE JavaScript to Website",
       "tags": ["base js placement", "base js implementation"],
-      "answer": "Here are the steps: <br>1. Integration can be done via Direct JS Integration or JS Integration via GTM<br>2. After adding the website, enable linking between websites to allow data flow",
+      "answer": "After adding the website, click on GET JAVASCRIPT SDK and copy the code. Then add the code in head section of the site.",
       "suggestion": "false"
     },
     {
       "qid": "2-1-2",
       "question": "How to integrate on GTM",
       "tags": ["gtm integration", "gtm setup"],
-      "answer": "There are two steps for GTM setup",
+      "answer": "There are two steps for GTM integration:",
       "suggestion": "false"
     }
   ]
