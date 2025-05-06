@@ -105,7 +105,7 @@ const showFollowupSuggestions = (qids) => {
       const faq = faqData.find(f => f.qid === id);
       return faq ? faq.question : null;
     })
-    .filter(Boolean);
+    .filter(q => q && q !== userMessage); // <- Filter out current question
 
   if (!newSuggestions.length) return;
 
