@@ -173,6 +173,7 @@ User: ${userMessage}
 
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
     p.innerHTML = formatText(answerBlock.trim());
+    enableImagePopups();
 
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
@@ -205,6 +206,28 @@ const handleChat = () => {
     chatbox.scrollTo(0, chatbox.scrollHeight);
     getGeminiResponse(thinkingLi);
   }, 500);
+};
+
+// popup image
+const enableImagePopups = () => {
+  document.querySelectorAll('.popup-image').forEach(img => {
+    img.onclick = () => {
+      const popup = document.createElement('div');
+      popup.style.position = 'fixed';
+      popup.style.top = '0';
+      popup.style.left = '0';
+      popup.style.width = '100vw';
+      popup.style.height = '100vh';
+      popup.style.background = 'rgba(0,0,0,0.8)';
+      popup.style.display = 'flex';
+      popup.style.alignItems = 'center';
+      popup.style.justifyContent = 'center';
+      popup.style.zIndex = '9999';
+      popup.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%; border: 4px solid white; border-radius: 8px;">`;
+      popup.onclick = () => document.body.removeChild(popup);
+      document.body.appendChild(popup);
+    };
+  });
 };
 
 // Events
