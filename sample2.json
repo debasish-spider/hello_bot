@@ -2,10 +2,193 @@
   "faqs": [
     {
       "qid": "1",
-      "question": "What is Netcore?",
-      "tags": ["about netcore", "netcore intro"],
-      "answer": "Netcore is a leading customer engagement platform.",
-      "suggestion": "false"
+      "question": "Know web engagement",
+      "tags": ["web engagement"],
+      "answer": "Please choose from the options below",
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1",
+      "question": "Web SDK",
+      "answer": "",
+      "tags": ["web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-1",
+      "question": "What is Web Customer Engagement User?",
+      "answer": "Web Customer Engagement User refers to the implementation of Netcore's Web SDK to enhance user engagement on web platforms. It encompasses features like push notifications, in-app messages, and user tracking.",
+      "tags": ["web", "customer engagement", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-2",
+      "question": "How to configure FCM for Web SDK?",
+      "answer": "To configure Firebase Cloud Messaging (FCM) for Netcore's Web SDK, you need to set up your Firebase project, obtain the necessary credentials, and integrate them into the Netcore platform. This enables push notification capabilities for your web application.",
+      "tags": ["fcm", "web sdk", "push notifications"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-3",
+      "question": "How to configure APNs for Web SDK?",
+      "answer": "Configuring Apple Push Notification service (APNs) for Netcore's Web SDK involves setting up your Apple developer account, generating the required certificates, and integrating them into the Netcore platform to enable push notifications for Safari users.",
+      "tags": ["apns", "web sdk", "push notifications"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-4",
+      "question": "How to ensure coexistence with 3rd party JavaScript?",
+      "answer": "To ensure Netcore's Web SDK coexists with third-party JavaScript libraries, it's essential to manage namespace conflicts, load scripts asynchronously, and follow best practices to prevent integration issues.",
+      "tags": ["third-party js", "integration", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-5",
+      "question": "How to migrate subscribers in Web SDK?",
+      "answer": "Migrating subscribers in Netcore's Web SDK involves exporting existing subscriber data, formatting it according to Netcore's requirements, and importing it into the platform to maintain continuity in user engagement.",
+      "tags": ["subscriber migration", "web sdk", "data import"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-6",
+      "question": "What are the migration steps for FCM v8.7.0?",
+      "answer": "Migrating to FCM version 8.7.0 requires updating your Firebase project settings, modifying your web application's service worker, and ensuring compatibility with the latest FCM features as outlined in Netcore's migration guide.",
+      "tags": ["fcm", "migration", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-7",
+      "question": "What is Web User and Event Tracking?",
+      "answer": "Web User and Event Tracking involves monitoring user behaviors and interactions on your website using Netcore's Web SDK. This data helps in building user profiles and segmenting audiences for targeted engagement.",
+      "tags": ["web sdk", "user tracking", "event tracking"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-8",
+      "question": "How to implement User Tracking?",
+      "answer": "To implement User Tracking, integrate Netcore's Web SDK into your website and configure it to capture user information such as login status, user ID, and other relevant attributes. This enables personalized user experiences and targeted campaigns.",
+      "tags": ["user tracking", "web sdk", "personalization"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-9",
+      "question": "How to implement Event Tracking?",
+      "answer": "Event Tracking involves capturing user interactions like clicks, form submissions, and page views. By configuring Netcore's Web SDK to log these events, you can analyze user behavior and optimize your website accordingly.",
+      "tags": ["event tracking", "analytics", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-10",
+      "question": "What is Web SDK Product Experience?",
+      "answer": "Web SDK Product Experience allows you to enhance user engagement by implementing features like nudges, in-app messages, and A/B testing. It helps in guiding users through your website and improving conversion rates.",
+      "tags": ["product experience", "web sdk", "user engagement"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-11",
+      "question": "How to define actions in Product Experience?",
+      "answer": "Defining actions involves setting up specific user interactions or triggers within your website that prompt certain responses, such as displaying a nudge or in-app message. This is configured through the Netcore dashboard.",
+      "tags": ["defining actions", "product experience", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-12",
+      "question": "How to implement A/B Testing and Feature Management?",
+      "answer": "A/B Testing and Feature Management allow you to test different versions of your website or features to determine which performs better. Using Netcore's Web SDK, you can configure experiments and manage feature rollouts effectively.",
+      "tags": ["a/b testing", "feature management", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-1-13",
+      "question": "How to integrate Web SDK via Google Tag Manager (GTM)?",
+      "answer": "Integrating Netcore's Web SDK via GTM involves adding the SDK script to your GTM container and configuring the necessary triggers and variables. This method simplifies the integration process without modifying your website's codebase.",
+      "tags": ["gtm", "web sdk", "integration"],
+      "suggestion": "true"
+    },
+
+    {
+      "qid": "1-2",
+      "question": "CE APIs",
+      "answer": "Web Customer Engagement User refers to the implementation of Netcore's Web SDK to enhance user engagement on web platforms. It encompasses features like push notifications, in-app messages, and user tracking.",
+      "tags": ["web", "customer engagement", "web sdk"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-1",
+      "question": "What are Smartech APIs?",
+      "answer": "Smartech APIs provide a comprehensive set of endpoints to manage and automate various aspects of your customer engagement strategies, including audience management, campaigns, templates, and more.",
+      "tags": ["smartech", "apis", "netcore"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-2",
+      "question": "What is the Audience API?",
+      "answer": "The Audience API allows you to manage your audience data, including creating and managing lists and segments, exporting data, and handling user schemas.",
+      "tags": ["audience", "api", "netcore"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-3",
+      "question": "What are the Contact APIs?",
+      "answer": "Contact APIs, also known as Functional APIs, enable you to perform operations such as adding, updating, and removing contacts, as well as managing contact lists and blacklists.",
+      "tags": ["functional", "contact", "api"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-4",
+      "question": "What are the List APIs?",
+      "answer": "List APIs provide functionalities to create, update, and manage contact lists, helping you organize your audience effectively.",
+      "tags": ["list", "api", "netcore"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-5",
+      "question": "What are the Campaign APIs?",
+      "answer": "Campaign APIs allow you to create, manage, and monitor various campaigns, including email, SMS, and push notifications, facilitating automated customer engagement.",
+      "tags": ["campaign", "api", "netcore"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-6",
+      "question": "What is the Email Template API?",
+      "answer": "The Email Template API enables you to create, update, and manage email templates, ensuring consistent and personalized communication with your audience.",
+      "tags": ["email", "template", "api"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-7",
+      "question": "What is the App Push Notification Campaign API?",
+      "answer": "This API allows you to create and manage push notification campaigns for your mobile applications, enhancing real-time user engagement.",
+      "tags": ["app", "push", "notification", "api"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-8",
+      "question": "What are the UDT APIs?",
+      "answer": "UDT (User Defined Table) APIs enable you to create and manage custom data tables, allowing for more flexible data storage and retrieval tailored to your business needs.",
+      "tags": ["udt", "user defined table", "api"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-9",
+      "question": "What is the Activity API?",
+      "answer": "The Activity API provides access to user activity data, helping you track and analyze user interactions for better engagement strategies.",
+      "tags": ["activity", "api", "netcore"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-10",
+      "question": "What are the GDPR APIs?",
+      "answer": "GDPR APIs assist in managing user data privacy preferences, ensuring compliance with data protection regulations by handling opt-ins, opt-outs, and data deletion requests.",
+      "tags": ["gdpr", "privacy", "api"],
+      "suggestion": "true"
+    },
+    {
+      "qid": "1-2-11",
+      "question": "What is the Trigger Push Notifications API?",
+      "answer": "This API allows you to send real-time push notifications to users based on specific triggers or events, enhancing timely and relevant communication.",
+      "tags": ["trigger", "push", "notification", "api"],
+      "suggestion": "true"
     },
     {
       "qid": "2",
@@ -34,195 +217,6 @@
       "question": "Add Netcore CE JavaScript to Website",
       "tags": ["base js placement", "base js implementation"],
       "answer": "Here are the steps: <br>1. Integration can be done via Direct JS Integration or JS Integration via GTM<br>2. After adding the website, enable linking between websites to allow data flow",
-      "suggestion": "false"
-    },
-    {
-      "qid": "2-2",
-      "question": "Integrate via plugin",
-      "tags": ["plugin integration"],
-      "answer": "",
-      "suggestion": "false"
-    },
-    {
-      "qid": "2-3",
-      "question": "Integrate via API",
-      "tags": ["API integration"],
-      "answer": "",
-      "suggestion": "false"
-    },
-    {
-      "qid": "3",
-      "question": "Can we migrate the existing FCM token to netcore",
-      "tags": ["fcm migration", "existing fcm"],
-      "answer": "You can use your existing FCM credentials with Netcore Smartech to enable the browser push notification for your website.",
-      "suggestion": "false"
-    },
-    {
-      "qid": "4",
-      "question": "What is Web Customer Engagement User?",
-      "answer": "Web Customer Engagement User refers to the implementation of Netcore's Web SDK to enhance user engagement on web platforms. It encompasses features like push notifications, in-app messages, and user tracking.",
-      "tags": ["web", "customer engagement", "web sdk"],
-      "suggestion": "true"
-    },
-    {
-      "qid": "4-1",
-      "question": "How to configure FCM for Web SDK?",
-      "answer": "To configure Firebase Cloud Messaging (FCM) for Netcore's Web SDK, you need to set up your Firebase project, obtain the necessary credentials, and integrate them into the Netcore platform. This enables push notification capabilities for your web application.",
-      "tags": ["fcm", "web sdk", "push notifications"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "4-2",
-      "question": "How to configure APNs for Web SDK?",
-      "answer": "Configuring Apple Push Notification service (APNs) for Netcore's Web SDK involves setting up your Apple developer account, generating the required certificates, and integrating them into the Netcore platform to enable push notifications for Safari users.",
-      "tags": ["apns", "web sdk", "push notifications"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "4-3",
-      "question": "How to ensure coexistence with 3rd party JavaScript?",
-      "answer": "To ensure Netcore's Web SDK coexists with third-party JavaScript libraries, it's essential to manage namespace conflicts, load scripts asynchronously, and follow best practices to prevent integration issues.",
-      "tags": ["third-party js", "integration", "web sdk"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "4-4",
-      "question": "How to migrate subscribers in Web SDK?",
-      "answer": "Migrating subscribers in Netcore's Web SDK involves exporting existing subscriber data, formatting it according to Netcore's requirements, and importing it into the platform to maintain continuity in user engagement.",
-      "tags": ["subscriber migration", "web sdk", "data import"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "4-5",
-      "question": "What are the migration steps for FCM v8.7.0?",
-      "answer": "Migrating to FCM version 8.7.0 requires updating your Firebase project settings, modifying your web application's service worker, and ensuring compatibility with the latest FCM features as outlined in Netcore's migration guide.",
-      "tags": ["fcm", "migration", "web sdk"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "6",
-      "question": "What is Web User and Event Tracking?",
-      "answer": "Web User and Event Tracking involves monitoring user behaviors and interactions on your website using Netcore's Web SDK. This data helps in building user profiles and segmenting audiences for targeted engagement.",
-      "tags": ["web sdk", "user tracking", "event tracking"],
-      "suggestion": "true"
-    },
-    {
-      "qid": "6-1",
-      "question": "How to implement User Tracking?",
-      "answer": "To implement User Tracking, integrate Netcore's Web SDK into your website and configure it to capture user information such as login status, user ID, and other relevant attributes. This enables personalized user experiences and targeted campaigns.",
-      "tags": ["user tracking", "web sdk", "personalization"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "6-2",
-      "question": "How to implement Event Tracking?",
-      "answer": "Event Tracking involves capturing user interactions like clicks, form submissions, and page views. By configuring Netcore's Web SDK to log these events, you can analyze user behavior and optimize your website accordingly.",
-      "tags": ["event tracking", "analytics", "web sdk"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "7",
-      "question": "What is Web SDK Product Experience?",
-      "answer": "Web SDK Product Experience allows you to enhance user engagement by implementing features like nudges, in-app messages, and A/B testing. It helps in guiding users through your website and improving conversion rates.",
-      "tags": ["product experience", "web sdk", "user engagement"],
-      "suggestion": "true"
-    },
-    {
-      "qid": "7-1",
-      "question": "How to define actions in Product Experience?",
-      "answer": "Defining actions involves setting up specific user interactions or triggers within your website that prompt certain responses, such as displaying a nudge or in-app message. This is configured through the Netcore dashboard.",
-      "tags": ["defining actions", "product experience", "web sdk"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "7-2",
-      "question": "How to implement A/B Testing and Feature Management?",
-      "answer": "A/B Testing and Feature Management allow you to test different versions of your website or features to determine which performs better. Using Netcore's Web SDK, you can configure experiments and manage feature rollouts effectively.",
-      "tags": ["a/b testing", "feature management", "web sdk"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "8",
-      "question": "How to integrate Web SDK via Google Tag Manager (GTM)?",
-      "answer": "Integrating Netcore's Web SDK via GTM involves adding the SDK script to your GTM container and configuring the necessary triggers and variables. This method simplifies the integration process without modifying your website's codebase.",
-      "tags": ["gtm", "web sdk", "integration"],
-      "suggestion": "true"
-    },
-    {
-      "qid": "9",
-      "question": "What are Smartech APIs?",
-      "answer": "Smartech APIs provide a comprehensive set of endpoints to manage and automate various aspects of your customer engagement strategies, including audience management, campaigns, templates, and more.",
-      "tags": ["smartech", "apis", "netcore"],
-      "suggestion": "true"
-    },
-    {
-      "qid": "9-1",
-      "question": "What is the Audience API?",
-      "answer": "The Audience API allows you to manage your audience data, including creating and managing lists and segments, exporting data, and handling user schemas.",
-      "tags": ["audience", "api", "netcore"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-2",
-      "question": "What are the Contact APIs?",
-      "answer": "Contact APIs, also known as Functional APIs, enable you to perform operations such as adding, updating, and removing contacts, as well as managing contact lists and blacklists.",
-      "tags": ["functional", "contact", "api"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-3",
-      "question": "What are the List APIs?",
-      "answer": "List APIs provide functionalities to create, update, and manage contact lists, helping you organize your audience effectively.",
-      "tags": ["list", "api", "netcore"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-4",
-      "question": "What are the Campaign APIs?",
-      "answer": "Campaign APIs allow you to create, manage, and monitor various campaigns, including email, SMS, and push notifications, facilitating automated customer engagement.",
-      "tags": ["campaign", "api", "netcore"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-5",
-      "question": "What is the Email Template API?",
-      "answer": "The Email Template API enables you to create, update, and manage email templates, ensuring consistent and personalized communication with your audience.",
-      "tags": ["email", "template", "api"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-6",
-      "question": "What is the App Push Notification Campaign API?",
-      "answer": "This API allows you to create and manage push notification campaigns for your mobile applications, enhancing real-time user engagement.",
-      "tags": ["app", "push", "notification", "api"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-7",
-      "question": "What are the UDT APIs?",
-      "answer": "UDT (User Defined Table) APIs enable you to create and manage custom data tables, allowing for more flexible data storage and retrieval tailored to your business needs.",
-      "tags": ["udt", "user defined table", "api"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-8",
-      "question": "What is the Activity API?",
-      "answer": "The Activity API provides access to user activity data, helping you track and analyze user interactions for better engagement strategies.",
-      "tags": ["activity", "api", "netcore"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-9",
-      "question": "What are the GDPR APIs?",
-      "answer": "GDPR APIs assist in managing user data privacy preferences, ensuring compliance with data protection regulations by handling opt-ins, opt-outs, and data deletion requests.",
-      "tags": ["gdpr", "privacy", "api"],
-      "suggestion": "false"
-    },
-    {
-      "qid": "9-10",
-      "question": "What is the Trigger Push Notifications API?",
-      "answer": "This API allows you to send real-time push notifications to users based on specific triggers or events, enhancing timely and relevant communication.",
-      "tags": ["trigger", "push", "notification", "api"],
       "suggestion": "false"
     }
   ]
