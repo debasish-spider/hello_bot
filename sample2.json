@@ -218,7 +218,6 @@
       "answer": "Here are the steps: <br>1. Hover on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<br>3. Select the Domain Type (HTTP/HTTPS) and enter the Website UR and save<br>4. Ensure the correct domain prefix and whether 'www' is included",
       "suggestion": "false"
     },
-    
     {
       "qid": "2-1-1-2",
       "question": "Add Netcore CE JavaScript to Website",
@@ -227,10 +226,32 @@
       "suggestion": "false"
     },
     {
+      "qid": "2-1-1-2-1",
+      "question": "<a href='https://debasish-spider.github.io/integration_tutorial/events.html' target='_blank'>Event tracking</a>",
+      "tags": ["event tracking"],
+      "answer": "",
+      "suggestion": "false"
+    },
+    {
+      "qid": "2-1-1-2-2",
+      "question": "<a href='https://debasish-spider.github.io/integration_tutorial/users.html' target='_blank'>User tracking</a>",
+      "tags": ["user tracking"],
+      "answer": "",
+      "suggestion": "false"
+    },
+    {
+      "qid": "2-1-1-2-3",
+      "question": "<a href='https://debasish-spider.github.io/integration_tutorial/fcm.html' target='_blank'>FCM setup</a>",
+      "tags": ["fcm setup"],
+      "answer": "",
+      "suggestion": "false"
+    },
+
+    {
       "qid": "2-1-2",
       "question": "How to integrate on GTM",
       "tags": ["gtm integration", "gtm setup"],
-      "answer": "There are two steps for GTM integration:",
+      "answer": "There are two steps for GTM setup",
       "suggestion": "false"
     }
   ]
