@@ -205,7 +205,8 @@ User: ${userMessage}
     const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find anything helpful.";
 
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
-    p.innerHTML = formatText(answerBlock.trim());
+    //p.innerHTML = formatText(answerBlock.trim());
+    renderAnswerInParts(p, formatText(answerBlock.trim()));
     enableImagePopups();
 
     if (followupBlock) {
