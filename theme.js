@@ -208,7 +208,7 @@ User: ${userMessage}
 
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
     //p.innerHTML = formatText(answerBlock.trim());
-    renderAnswerInParts(p, formatText(answerBlock.trim()));
+    renderAnswerInParts(wrapper, formatText(answerBlock.trim()));
     enableImagePopups();
 
     if (followupBlock) {
