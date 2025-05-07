@@ -108,20 +108,28 @@ const renderAnswerInParts = (container, html) => {
   let currentIndex = 0;
 
   const renderPart = (index) => {
-    container.innerHTML = parts[index];
+    const partDiv = document.createElement("div");
+    partDiv.className = "answer-part";
+    partDiv.innerHTML = parts[index];
+    container.appendChild(partDiv);
 
-    const navDiv = document.createElement("div");
-    navDiv.className = "answer-nav";
-
+    // Add Next button only if there are more parts
     if (index < parts.length - 1) {
+      const navDiv = document.createElement("div");
+      navDiv.className = "answer-nav";
+
       const nextBtn = document.createElement("button");
       nextBtn.textContent = "Next";
       nextBtn.className = "nav-btn";
-      nextBtn.onclick = () => renderPart(index + 1);
-      navDiv.appendChild(nextBtn);
-    }
+      nextBtn.onclick = () => {
+        navDiv.remove(); // Remove current Next button before showing next part
+        currentIndex++;
+        renderPart(currentIndex);
+      };
 
-    container.appendChild(navDiv);
+      navDiv.appendChild(nextBtn);
+      container.appendChild(navDiv);
+    }
   };
 
   renderPart(currentIndex);
