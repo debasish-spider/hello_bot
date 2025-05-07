@@ -111,7 +111,7 @@ li.chat.incoming+.incoming {
   border-radius: 4px;
   margin: 0 10px 7px 0;
 }
-.chatbox .chat p {
+.chatbox .chat p, .chatbox .incoming .answer-wrapper {
   white-space: pre-wrap;
   padding: 12px 16px;
   border-radius: 10px 10px 0 10px;
@@ -227,7 +227,7 @@ li.chat.incoming+.incoming {
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  li.chat.incoming p {
+  li.chat.incoming p, li.chat.incoming .answer-wrapper {
     background: #143f93;
     color: #fff;
   }
