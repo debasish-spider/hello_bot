@@ -98,6 +98,39 @@ const createChatLi = (message, className) => {
 const formatText = (text) => {
   return text.replace(/\n/g, "<br>").replace(/(\d+\.\s)/g, "<br>$1").replace(/(\•\s)/g, "<br>$1");
 };
+const renderAnswerInParts = (container, html) => {
+  const parts = html.split("<!--part-->");
+  if (parts.length <= 1) {
+    container.innerHTML = html;
+    return;
+  }
+
+  let currentIndex = 0;
+
+  const renderPart = (index) => {
+    container.innerHTML = parts[index];
+    const navDiv = document.createElement("div");
+    navDiv.className = "answer-nav";
+    if (index > 0) {
+      const prevBtn = document.createElement("button");
+      prevBtn.textContent = "Previous";
+      prevBtn.className = "nav-btn";
+      prevBtn.onclick = () => renderPart(index - 1);
+      navDiv.appendChild(prevBtn);
+    }
+    if (index < parts.length - 1) {
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "Next";
+      nextBtn.className = "nav-btn";
+      nextBtn.onclick = () => renderPart(index + 1);
+      navDiv.appendChild(nextBtn);
+    }
+    container.appendChild(navDiv);
+  };
+
+  renderPart(currentIndex);
+};
+
 
 const showFollowupSuggestions = (qids) => {
   const newSuggestions = qids
