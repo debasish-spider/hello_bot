@@ -109,15 +109,10 @@ const renderAnswerInParts = (container, html) => {
 
   const renderPart = (index) => {
     container.innerHTML = parts[index];
+
     const navDiv = document.createElement("div");
     navDiv.className = "answer-nav";
-    if (index > 0) {
-      const prevBtn = document.createElement("button");
-      prevBtn.textContent = "Previous";
-      prevBtn.className = "nav-btn";
-      prevBtn.onclick = () => renderPart(index - 1);
-      navDiv.appendChild(prevBtn);
-    }
+
     if (index < parts.length - 1) {
       const nextBtn = document.createElement("button");
       nextBtn.textContent = "Next";
@@ -125,6 +120,7 @@ const renderAnswerInParts = (container, html) => {
       nextBtn.onclick = () => renderPart(index + 1);
       navDiv.appendChild(nextBtn);
     }
+
     container.appendChild(navDiv);
   };
 
