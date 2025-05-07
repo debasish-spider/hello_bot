@@ -162,7 +162,9 @@ const showFollowupSuggestions = (qids) => {
 };
 
 const getGeminiResponse = async (chatElement) => {
-  const p = chatElement.querySelector("p");
+  const wrapper = document.createElement("div");
+  wrapper.className = "answer-wrapper";
+  chatElement.querySelector("p").replaceWith(wrapper);
 
   const faqContext = faqData.map(f => {
   return `QID: ${f.qid}\nQ: ${f.question}\nTags: ${(f.tags || []).join(", ")}\nA: ${f.answer}`;
