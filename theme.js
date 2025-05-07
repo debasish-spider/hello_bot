@@ -98,43 +98,6 @@ const createChatLi = (message, className) => {
 const formatText = (text) => {
   return text.replace(/\n/g, "<br>").replace(/(\d+\.\s)/g, "<br>$1").replace(/(\•\s)/g, "<br>$1");
 };
-const renderAnswerInParts = (container, html) => {
-  const parts = html.split("<!--part-->");
-  if (parts.length <= 1) {
-    container.innerHTML = html;
-    return;
-  }
-
-  let currentIndex = 0;
-
-  const renderPart = (index) => {
-    const partDiv = document.createElement("div");
-    partDiv.className = "answer-part";
-    partDiv.innerHTML = parts[index];
-    container.appendChild(partDiv);
-
-    // Add Next button only if there are more parts
-    if (index < parts.length - 1) {
-      const navDiv = document.createElement("div");
-      navDiv.className = "answer-nav";
-
-      const nextBtn = document.createElement("button");
-      nextBtn.textContent = "Next";
-      nextBtn.className = "nav-btn";
-      nextBtn.onclick = () => {
-        navDiv.remove(); // Remove current Next button before showing next part
-        currentIndex++;
-        renderPart(currentIndex);
-      };
-
-      navDiv.appendChild(nextBtn);
-      container.appendChild(navDiv);
-    }
-  };
-
-  renderPart(currentIndex);
-};
-
 
 const showFollowupSuggestions = (qids) => {
   const newSuggestions = qids
@@ -166,9 +129,7 @@ const showFollowupSuggestions = (qids) => {
 };
 
 const getGeminiResponse = async (chatElement) => {
-  const wrapper = document.createElement("div");
-  wrapper.className = "answer-wrapper";
-  chatElement.querySelector("p").replaceWith(wrapper);
+  const p = chatElement.querySelector("p");
 
   const faqContext = faqData.map(f => {
   return `QID: ${f.qid}\nQ: ${f.question}\nTags: ${(f.tags || []).join(", ")}\nA: ${f.answer}`;
@@ -211,8 +172,7 @@ User: ${userMessage}
     const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find anything helpful.";
 
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
-    //p.innerHTML = formatText(answerBlock.trim());
-    renderAnswerInParts(wrapper, formatText(answerBlock.trim()));
+    p.innerHTML = formatText(answerBlock.trim());
     enableImagePopups();
 
     if (followupBlock) {
