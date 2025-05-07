@@ -5,7 +5,7 @@
       "question": "Know web engagement",
       "tags": ["web engagement"],
       "answer": "Please choose from the options below",
-      "suggestion": "true"
+      "suggestion": "false"
     },
     {
       "qid": "1-1",
@@ -192,30 +192,30 @@
     },
     {
       "qid": "2",
-      "question": "Start with website integration",
+      "question": "Start with Web integration",
       "tags": ["integration steps", "setup"],
       "answer": "There are three ways to integrate: <br>1. SDK integration <br>2. Via Plugin <br>3. API Integration",
-      "suggestion": "true"
+      "suggestion": "false"
     },
     {
       "qid": "2-1",
-      "question": "How to do SDK integrattion",
-      "tags": ["web sdk integration instructions"],
+      "question": "How to do SDK integration",
+      "tags": ["web sdk integration instructions", "web sdk integration", "web sdk setup", "web sdk implementation"],
       "answer": "There are two ways for SDK integration: <br>1. Direct js <br>2. Via GTM",
       "suggestion": "false"
     },
     {
       "qid": "2-1-1",
-      "question": "How to integrate direct Smartech JS",
+      "question": "Integrate direct Smartech JS",
       "tags": ["direct js integration", "direct js implementation"],
       "answer": "There are two steps for direct js implementation: <br>1. Add Website in Netcore CE <br>2. Add Netcore CE JavaScript to your Website",
-      "suggestion": "false"
+      "suggestion": "true"
     },
     {
       "qid": "2-1-1-1",
       "question": "Add Website in Netcore CE",
       "tags": ["assets creation", "base js creation"],
-      "answer": "Here are the steps: <br>1. Hover on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<br>3. Select the Domain Type (HTTP/HTTPS) and enter the Website UR and save<br>4. Ensure the correct domain prefix and whether 'www' is included",
+      "answer": "Here are the steps: <!--part--><br>1. Hover on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<br>3. Select the Domain Type (HTTP/HTTPS) and enter the Website UR and save<br>4. Ensure the correct domain prefix and whether 'www' is included<br><!--part-->After adding the website, click on GET JAVASCRIPT SDK and copy the code. Then add the code in head section of the site.",
       "suggestion": "false"
     },
     {
