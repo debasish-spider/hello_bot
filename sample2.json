@@ -208,39 +208,32 @@
       "qid": "2-1-1",
       "question": "Integrate direct Smartech JS",
       "tags": ["direct js integration", "direct js implementation"],
-      "answer": "There are two steps for direct js implementation: <br>1. Add Website in Netcore CE <br>2. Add Netcore CE JavaScript to your Website",
+      "answer": "There are four parts for direct js implementation: <br>1. Create Netcore CE JavaScript and place it on your website  <br>2. FCM/BPN setup <br>3. Event tracking <br>4. Contact form and User tracking.",
       "suggestion": "true"
     },
     {
       "qid": "2-1-1-1",
       "question": "Add Website in Netcore CE",
-      "tags": ["assets creation", "base js creation"],
+      "tags": ["assets creation", "base js creation", "add smartech js on website", "base js placement", "base js implementation"],
       "answer": "Here are the steps: <br>1. Hover on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<!--part-->3. Select the Domain Type (HTTP/HTTPS) and enter the Website UR and save<br>4. Ensure the correct domain prefix and whether 'www' is included<!--part-->5. After adding the website, click on GET JAVASCRIPT SDK and copy the code. Then add the code in the head section of the site.",
       "suggestion": "false"
     },
     {
       "qid": "2-1-1-2",
-      "question": "Add Netcore CE JavaScript to Website",
-      "tags": ["base js placement", "base js implementation"],
-      "answer": "After adding the website, click on GET JAVASCRIPT SDK and copy the code. Then add the code in head section of the site.",
-      "suggestion": "false"
-    },
-    {
-      "qid": "2-1-1-2-1",
       "question": "Event tracking",
       "tags": ["event tracking"],
-      "answer": "You can learn about event tracking in detail <a href='https://debasish-spider.github.io/integration_tutorial/events.html' target='_blank'>here</a>",
+      "answer": "1. System Activity & their Tracking:<br>To ensure tracking of system defined activities following configurations are to be made to the Netcore CE Javascript SDK.<br>smartech('dispatch','page browse',{});<br>above activity being considered is Page Browse, one of the System Defined Activities. Once the code is added over to the Netcore CE JS SDK, this is how the final code will look like <div class='popup-code' data-code=\"&lt;script src='//cdnt.netcoresmartech.com/smartechclient.js'&gt;&lt;/script&gt;\n&lt;script&gt;\nsmartech('create', '&lt;Smartech Panel identifier&gt;');\nsmartech('register', '&lt;Website Identifier&gt;');\nsmartech('identify', '&lt;Unique user identifier/Primary Key of the smartech panel &gt;');\nsmartech('dispatch','page browse',{});\n&lt;/script&gt;\">this code</div>",
       "suggestion": "false"
     },
     {
-      "qid": "2-1-1-2-2",
+      "qid": "2-1-1-3",
       "question": "User tracking",
       "tags": ["user tracking"],
       "answer": "You can learn about user tracking in detail <a href='https://debasish-spider.github.io/integration_tutorial/users.html' target='_blank'>here</a>",
       "suggestion": "false"
     },
     {
-      "qid": "2-1-1-2-3",
+      "qid": "2-1-1-4",
       "question": "FCM setup",
       "tags": ["fcm setup"],
       "answer": "You can learn about FCM in detail <a href='https://debasish-spider.github.io/integration_tutorial/fcm.html' target='_blank'>here</a>",
