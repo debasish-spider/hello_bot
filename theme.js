@@ -172,7 +172,15 @@ User: ${userMessage}
     const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find anything helpful.";
 
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
-    p.innerHTML = formatText(answerBlock.trim());
+    const formatted = formatText(answerBlock.trim());
+    
+    if (formatted.includes("<!--part-->")) {
+      p.innerHTML = ""; // Clear only if answer has parts
+      renderAnswerInParts(p, formatted);
+    } else {
+      p.innerHTML = formatted;
+    }
+    
     enableImagePopups();
 
     if (followupBlock) {
@@ -185,6 +193,40 @@ User: ${userMessage}
   } finally {
     chatbox.scrollTo(0, chatbox.scrollHeight);
   }
+};
+const renderAnswerInParts = (container, html) => {
+  const parts = html.split("<!--part-->");
+  if (parts.length <= 1) {
+    container.innerHTML = html;
+    return;
+  }
+
+  let currentIndex = 0;
+  const wrapper = document.createElement("div");
+  wrapper.className = "multi-part-answer";
+
+  const renderNextPart = () => {
+    const partDiv = document.createElement("div");
+    partDiv.className = "answer-part";
+    partDiv.innerHTML = parts[currentIndex];
+    wrapper.appendChild(partDiv);
+    currentIndex++;
+
+    const existingBtn = wrapper.querySelector(".next-part-btn");
+    if (existingBtn) existingBtn.remove();
+
+    if (currentIndex < parts.length) {
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "Next";
+      nextBtn.className = "next-part-btn";
+      nextBtn.onclick = renderNextPart;
+      wrapper.appendChild(nextBtn);
+    }
+    container.scrollTo(0, container.scrollHeight);
+  };
+
+  renderNextPart();
+  container.appendChild(wrapper);
 };
 
 const handleChat = () => {
