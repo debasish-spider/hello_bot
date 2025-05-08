@@ -204,6 +204,11 @@ const renderAnswerInParts = (container, html) => {
   let currentIndex = 0;
   const wrapper = document.createElement("div");
   wrapper.className = "multi-part-answer";
+  container.appendChild(wrapper);
+
+  const nextBtn = document.createElement("button");
+  nextBtn.textContent = "Next";
+  nextBtn.className = "next-part-btn";
 
   const renderNextPart = () => {
     const partDiv = document.createElement("div");
@@ -212,21 +217,18 @@ const renderAnswerInParts = (container, html) => {
     wrapper.appendChild(partDiv);
     currentIndex++;
 
-    const existingBtn = wrapper.querySelector(".next-part-btn");
-    if (existingBtn) existingBtn.remove();
-
+    // Move the next button to the bottom
+    if (wrapper.contains(nextBtn)) wrapper.removeChild(nextBtn);
     if (currentIndex < parts.length) {
-      const nextBtn = document.createElement("button");
-      nextBtn.textContent = "Next";
-      nextBtn.className = "next-part-btn";
-      nextBtn.onclick = renderNextPart;
       wrapper.appendChild(nextBtn);
     }
-    container.scrollTo(0, container.scrollHeight);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
   };
 
+  nextBtn.onclick = renderNextPart;
+
+  // Show first part immediately
   renderNextPart();
-  container.appendChild(wrapper);
 };
 
 const handleChat = () => {
