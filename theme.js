@@ -182,6 +182,7 @@ User: ${userMessage}
     }
     
     enableImagePopups();
+    enableCodePopups();
 
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
@@ -251,6 +252,37 @@ const handleChat = () => {
     getGeminiResponse(thinkingLi);
   }, 500);
 };
+
+// popup code block
+const enableCodePopups = () => {
+  document.querySelectorAll('.popup-code').forEach(el => {
+    el.onclick = () => {
+      const rawCode = el.getAttribute('data-code');
+      const popup = document.createElement('div');
+      popup.className = 'popup-overlay';
+      popup.innerHTML = `
+        <div class="popup-content">
+          <pre><code>${rawCode}</code></pre>
+          <button class="copy-code-btn">Copy</button>
+        </div>
+      `;
+      popup.onclick = () => document.body.removeChild(popup);
+      popup.querySelector(".copy-code-btn").onclick = (e) => {
+        e.stopPropagation();
+        navigator.clipboard.writeText(decodeHTMLEntities(rawCode));
+      };
+      document.body.appendChild(popup);
+    };
+  });
+};
+
+// Utility to decode entities like &lt; to <
+const decodeHTMLEntities = (str) => {
+  const div = document.createElement("div");
+  div.innerHTML = str;
+  return div.textContent;
+};
+
 
 // popup image
 const enableImagePopups = () => {
