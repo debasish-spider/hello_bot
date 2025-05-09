@@ -337,4 +337,45 @@ li.chat.incoming+.incoming {
 .popup-code-trigger:hover {
     background: #cadcff !important;
 }
-
+.code-popup-close {
+    margin-bottom: 10px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.code-copy {
+    margin-left: 10px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: #ffcc00;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.code-popup-overlay pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+    max-height: 60vh;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    line-height: 1.5;
+    margin-top: 30px;
+}
