@@ -182,7 +182,7 @@ User: ${userMessage}
     }
     
     enableImagePopups();
-    enableCodePopups();
+    enableCodeBlockPopups();
 
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
@@ -254,33 +254,57 @@ const handleChat = () => {
 };
 
 // popup code block
-const enableCodePopups = () => {
-  document.querySelectorAll('.popup-code').forEach(el => {
-    el.onclick = () => {
-      const rawCode = el.getAttribute('data-code');
-      const popup = document.createElement('div');
-      popup.className = 'popup-overlay';
-      popup.innerHTML = `
-        <div class="popup-content">
-          <pre><code>${rawCode}</code></pre>
-          <button class="copy-code-btn">Copy</button>
-        </div>
-      `;
-      popup.onclick = () => document.body.removeChild(popup);
-      popup.querySelector(".copy-code-btn").onclick = (e) => {
-        e.stopPropagation();
-        navigator.clipboard.writeText(decodeHTMLEntities(rawCode));
-      };
-      document.body.appendChild(popup);
-    };
-  });
-};
+const enableCodeBlockPopups = () => {
+  document.querySelectorAll(".popup-code-trigger").forEach(trigger => {
+    trigger.addEventListener("click", () => {
+      const codeBlock = trigger.nextElementSibling;
+      if (!codeBlock || !codeBlock.classList.contains("popup-code-content")) return;
 
-// Utility to decode entities like &lt; to <
-const decodeHTMLEntities = (str) => {
-  const div = document.createElement("div");
-  div.innerHTML = str;
-  return div.textContent;
+      const popup = document.createElement("div");
+      popup.style.position = "fixed";
+      popup.style.top = "0";
+      popup.style.left = "0";
+      popup.style.width = "100vw";
+      popup.style.height = "100vh";
+      popup.style.background = "rgba(0,0,0,0.85)";
+      popup.style.zIndex = "100000";
+      popup.style.display = "flex";
+      popup.style.alignItems = "center";
+      popup.style.justifyContent = "center";
+      popup.style.padding = "20px";
+
+      const codeContainer = document.createElement("div");
+      codeContainer.style.background = "#fff";
+      codeContainer.style.padding = "20px";
+      codeContainer.style.borderRadius = "8px";
+      codeContainer.style.maxWidth = "90%";
+      codeContainer.style.maxHeight = "80%";
+      codeContainer.style.overflow = "auto";
+
+      const closeBtn = document.createElement("button");
+      closeBtn.innerText = "Close";
+      closeBtn.style.marginBottom = "10px";
+      closeBtn.onclick = () => document.body.removeChild(popup);
+
+      const codeElement = document.createElement("pre");
+      codeElement.textContent = codeBlock.textContent;
+
+      const copyBtn = document.createElement("button");
+      copyBtn.innerText = "Copy Code";
+      copyBtn.style.marginLeft = "10px";
+      copyBtn.onclick = () => {
+        navigator.clipboard.writeText(codeBlock.textContent);
+        copyBtn.innerText = "Copied!";
+        setTimeout(() => (copyBtn.innerText = "Copy Code"), 2000);
+      };
+
+      codeContainer.appendChild(closeBtn);
+      codeContainer.appendChild(copyBtn);
+      codeContainer.appendChild(codeElement);
+      popup.appendChild(codeContainer);
+      document.body.appendChild(popup);
+    });
+  });
 };
 
 
