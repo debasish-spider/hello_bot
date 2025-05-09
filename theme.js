@@ -284,7 +284,7 @@ const enableCodeBlockPopups = () => {
       codeContainer.style.background = "#fff";
       codeContainer.style.padding = "20px";
       codeContainer.style.borderRadius = "8px";
-      codeContainer.style.maxWidth = "50%";
+      codeContainer.style.maxWidth = "70%";
       codeContainer.style.maxHeight = "80%";
       codeContainer.style.position = "relative";
       codeContainer.style.overflow = "auto";
