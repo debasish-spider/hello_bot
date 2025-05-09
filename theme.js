@@ -300,7 +300,7 @@ const enableCodeBlockPopups = () => {
       copyBtn.innerText = "Copy Code";
       copyBtn.style.marginLeft = "10px";
       copyBtn.onclick = () => {
-        navigator.clipboard.writeText(codeBlock.innerHTML);
+        navigator.clipboard.writeText(codeBlock.textContent);
         copyBtn.innerText = "Copied!";
         setTimeout(() => (copyBtn.innerText = "Copy Code"), 2000);
       };
