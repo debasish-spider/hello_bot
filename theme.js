@@ -256,11 +256,18 @@ const handleChat = () => {
 // popup code block
 const enableCodeBlockPopups = () => {
   document.querySelectorAll(".popup-code-trigger").forEach(trigger => {
-    trigger.addEventListener("click", () => {
-      const codeBlock = trigger.nextElementSibling;
+    const cloned = trigger.cloneNode(true);
+    trigger.replaceWith(cloned); // removes previous event listener
+
+    cloned.addEventListener("click", () => {
+      const codeBlock = cloned.nextElementSibling;
       if (!codeBlock || !codeBlock.classList.contains("popup-code-content")) return;
 
+      // Prevent duplicate popup creation
+      if (document.querySelector(".code-popup-overlay")) return;
+
       const popup = document.createElement("div");
+      popup.className = "code-popup-overlay";
       popup.style.position = "fixed";
       popup.style.top = "0";
       popup.style.left = "0";
@@ -286,9 +293,6 @@ const enableCodeBlockPopups = () => {
       closeBtn.style.marginBottom = "10px";
       closeBtn.onclick = () => document.body.removeChild(popup);
 
-      const codeElement = document.createElement("pre");
-      codeElement.textContent = codeBlock.textContent;
-
       const copyBtn = document.createElement("button");
       copyBtn.innerText = "Copy Code";
       copyBtn.style.marginLeft = "10px";
@@ -297,6 +301,9 @@ const enableCodeBlockPopups = () => {
         copyBtn.innerText = "Copied!";
         setTimeout(() => (copyBtn.innerText = "Copy Code"), 2000);
       };
+
+      const codeElement = document.createElement("pre");
+      codeElement.textContent = codeBlock.textContent;
 
       codeContainer.appendChild(closeBtn);
       codeContainer.appendChild(copyBtn);
