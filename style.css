@@ -321,4 +321,20 @@ li.chat.incoming+.incoming {
   cursor: pointer;
   border-radius: 4px;
 }
+.popup-code-trigger {
+    display: inline-block;
+    background: #e2e2e2;
+    border: 1px dashed #555;
+    padding: 6px 10px;
+    margin: 4px 0;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+.popup-code-trigger:hover {
+    background: #cadcff !important;
+}
 
