@@ -307,9 +307,7 @@ const enableCodeBlockPopups = () => {
 
       const codeElement = document.createElement("pre");
       const code = document.createElement("code");
-      const code1 = document.createElement("div");
-      code1.innerHTML = codeBlock.innerHTML;
-      code.appendChild(code1);
+      code.innerHTML = codeBlock.innerHTML;
       codeElement.appendChild(code);
 
       codeContainer.appendChild(closeBtn);
