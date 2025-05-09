@@ -290,13 +290,13 @@ const enableCodeBlockPopups = () => {
       codeContainer.style.overflow = "auto";
 
       const closeBtn = document.createElement("button");
-      popup.className = "code-popup-close";
+      closeBtn.className = "code-popup-close";
       closeBtn.innerText = "Close";
       closeBtn.style.marginBottom = "10px";
       closeBtn.onclick = () => document.body.removeChild(popup);
 
       const copyBtn = document.createElement("button");
-      popup.className = "code-copy";
+      copyBtn.className = "code-copy";
       copyBtn.innerText = "Copy Code";
       copyBtn.style.marginLeft = "10px";
       copyBtn.onclick = () => {
