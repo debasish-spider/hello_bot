@@ -273,7 +273,7 @@ const enableCodeBlockPopups = () => {
       popup.style.left = "0";
       popup.style.width = "100vw";
       popup.style.height = "100vh";
-      popup.style.background = "rgba(0,0,0,0.85)";
+      popup.style.background = "rgb(150 150 150 / 85%)";
       popup.style.zIndex = "100000";
       popup.style.display = "flex";
       popup.style.alignItems = "center";
@@ -284,16 +284,19 @@ const enableCodeBlockPopups = () => {
       codeContainer.style.background = "#fff";
       codeContainer.style.padding = "20px";
       codeContainer.style.borderRadius = "8px";
-      codeContainer.style.maxWidth = "90%";
+      codeContainer.style.maxWidth = "50%";
       codeContainer.style.maxHeight = "80%";
+      codeContainer.style.position = "relative";
       codeContainer.style.overflow = "auto";
 
       const closeBtn = document.createElement("button");
+      popup.className = "code-popup-close";
       closeBtn.innerText = "Close";
       closeBtn.style.marginBottom = "10px";
       closeBtn.onclick = () => document.body.removeChild(popup);
 
       const copyBtn = document.createElement("button");
+      popup.className = "code-copy";
       copyBtn.innerText = "Copy Code";
       copyBtn.style.marginLeft = "10px";
       copyBtn.onclick = () => {
