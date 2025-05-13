@@ -39,7 +39,7 @@ const chatbotHTML = `
     </button>
     <div class="chatbot">
       <header>
-        <h2>Integration bot</h2>
+        <h2>Smart I-bot</h2>
         <span class="close-btn material-symbols-outlined">close</span>
       </header>
       <ul class="chatbox">
