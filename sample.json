@@ -168,7 +168,7 @@
       {
         "qid": "2-1-1-4",
         "parent": "2-1-1",
-        "children": null
+        "children": "1"
       },
       {
         "qid": "2-1-2",
