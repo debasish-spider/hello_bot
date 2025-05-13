@@ -25,7 +25,7 @@ fetch("https://debasish-spider.github.io/hello_bot/sample2.json")
   .catch(err => console.error("Failed to load FAQ data", err));
 
 const startRotatingPlaceholders = () => {
-  const suggestedQuestions = faqData.filter(f => f.suggestion === "true").map(f => f.question);
+  const suggestedQuestions = faqData.filter(f => f.suggestion === "false").map(f => f.question);
   if (!suggestedQuestions.length) return;
 
   const deletePlaceholder = (text, index) => {
