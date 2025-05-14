@@ -220,9 +220,9 @@
     },
     {
       "qid": "2-1-1-2",
-      "question": "Event tracking",
+      "question": "Setup Event tracking",
       "tags": ["event tracking"],
-      "answer": "1. System Activity & their Tracking:<br>To ensure tracking of system defined activities, following configurations are to be made to the Netcore CE Javascript SDK.<br><code>smartech('dispatch','page browse',{});</code><br>This activity is Page Browse, one of the system-defined activities. Once the code is added to the Netcore CE JS SDK, the final code will look like this: <div class='popup-code-trigger'>Click here to view the code</div><pre class='popup-code-content' style='display:none;'>&lt;script src=\"//cdnt.netcoresmartech.com/smartechclient.js\"&gt;&lt;/script&gt;\n&lt;script&gt;\n  smartech(\"create\", \"&lt;Smartech Panel identifier&gt;\");\n  smartech(\"register\", \"&lt;Website Identifier&gt;\");\n  smartech(\"identify\", \"&lt;Unique user identifier/Primary Key of the smartech panel&gt;\");\n  smartech(\"dispatch\", \"page browse\", {});\n&lt;/script&gt;</pre>",
+      "answer": "1. Once the events list is finalised, use the code syntax given below to trigger the events and their payloads.<br><br><code>smartech('dispatch','page browse',{'page_url' : window.location.href});</code><br><br>This sample is for Page Browse event / activity.<br><br> If this page browse activity is set in the Base JS, then the final code will look like this: <div class='popup-code-trigger'>Click here to view the code</div><pre class='popup-code-content' style='display:none;'>&lt;script src=\"//cdnt.netcoresmartech.com/smartechclient.js\"&gt;&lt;/script&gt;\n&lt;script&gt;\n  smartech(\"create\", \"&lt;Smartech Panel identifier&gt;\");\n  smartech(\"register\", \"&lt;Website Identifier&gt;\");\n  smartech(\"identify\", \"&lt;Unique user identifier/Primary Key of the smartech panel&gt;\");\n  smartech(\"dispatch\", \"page browse\", {});\n&lt;/script&gt;</pre>",
       "suggestion": "false"
     },
     {
