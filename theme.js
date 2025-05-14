@@ -108,12 +108,18 @@ const showFollowupSuggestions = (qids) => {
   const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
   const userMessageNormalized = normalize(userMessage);
 
-  const newSuggestions = qids
+  let newSuggestions = qids
     .map(id => {
       const faq = faqData.find(f => f.qid === id);
       return faq ? faq.question : null;
     })
-    .filter(q => q && normalize(q) !== userMessageNormalized); // Avoid semantically same suggestion
+    .filter(q => q && normalize(q) !== userMessageNormalized);
+
+  // 🔁 Fallback: If no suggestions, use question with qid: "1"
+  if (!newSuggestions.length) {
+    const fallback = faqData.find(f => f.qid === "1");
+    if (fallback) newSuggestions = [fallback.question];
+  }
 
   if (!newSuggestions.length) return;
 
