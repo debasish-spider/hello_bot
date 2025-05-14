@@ -206,16 +206,16 @@
     },
     {
       "qid": "2-1-1",
-      "question": "Integrate direct Smartech JS",
+      "question": "Initiate Smartech JS integration",
       "tags": ["direct js integration", "direct js implementation"],
-      "answer": "There are four parts for direct js implementation: <br>1. Create Netcore CE JavaScript and place it on your website  <br>2. FCM/BPN setup <br>3. Event tracking <br>4. Contact form and User tracking.",
+      "answer": "Follow these simple four steps to integrate Smartech JS: <br>1. Create an website asset in the dashboard to get the Javascript  <br>2. Web Push Notification setup <br>3. Users behavioural (events) tracking <br>4. Users demographic (profile) collection.",
       "suggestion": "true"
     },
     {
       "qid": "2-1-1-1",
-      "question": "Create Netcore CE JavaScript",
+      "question": "Create website asset",
       "tags": ["assets creation", "base js creation", "add smartech js on website", "base js placement", "base js implementation"],
-      "answer": "Here are the steps: <br>1. Hover on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<!--part-->3. Select the Domain Type (HTTP/HTTPS) and enter the Website UR and save<br>4. Ensure the correct domain prefix and whether 'www' is included<!--part-->5. After adding the website, click on GET JAVASCRIPT SDK and copy the code. Then add the code in the head section of the site.",
+      "answer": "Here are the steps: <br>1. Hover on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<!--part-->3. Select the Domain Type (HTTP/HTTPS) and enter the Website URL and save<br>4. Ensure the correct domain prefix is added i.e whether 'www' is included<!--part-->5. After saving the web asset, click on GET JAVASCRIPT SDK and copy the code. Then add the code in the head section of the site.",
       "suggestion": "false"
     },
     {
