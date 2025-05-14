@@ -85,6 +85,11 @@ const showInitialSuggestions = () => {
   });
 };
 
+const parseMarkdownLinks = (text) => {
+  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  return text.replace(linkRegex, '<a href="$2" target="_blank">$1</a>');
+};
+
 const createChatLi = (message, className) => {
   const chatLi = document.createElement("li");
   chatLi.classList.add("chat", className);
@@ -172,7 +177,7 @@ User: ${userMessage}
     const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find anything helpful.";
 
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
-    const formatted = formatText(answerBlock.trim());
+    const formatted = parseMarkdownLinks(formatText(answerBlock.trim()));
     
     if (formatted.includes("<!--part-->")) {
       p.innerHTML = ""; // Clear only if answer has parts
