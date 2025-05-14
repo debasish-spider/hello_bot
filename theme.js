@@ -105,12 +105,15 @@ const formatText = (text) => {
 };
 
 const showFollowupSuggestions = (qids) => {
+  const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
+  const userMessageNormalized = normalize(userMessage);
+
   const newSuggestions = qids
     .map(id => {
       const faq = faqData.find(f => f.qid === id);
       return faq ? faq.question : null;
     })
-    .filter(q => q && q !== userMessage); // <- Filter out current question
+    .filter(q => q && normalize(q) !== userMessageNormalized); // Avoid semantically same suggestion
 
   if (!newSuggestions.length) return;
 
