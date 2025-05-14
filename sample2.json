@@ -45,7 +45,7 @@
     {
       "qid": "1-1-5",
       "question": "How to migrate subscribers in Web SDK?",
-      "answer": "Migrating subscribers in Netcore's Web SDK involves exporting existing subscriber data, formatting it according to Netcore's requirements, and importing it into the platform to maintain continuity in user engagement.",
+      "answer": "The web users who had already given their consent for web push will be migrated gradually over a period of time i.e when they visit the website and Smartech JS initiates and picks the browser token and pass it to Smartech backend.",
       "tags": ["subscriber migration", "web sdk", "data import"],
       "suggestion": "false"
     },
