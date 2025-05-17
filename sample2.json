@@ -215,7 +215,7 @@
       "qid": "2-1-1-1",
       "question": "Create website asset",
       "tags": ["assets creation", "base js creation", "add smartech js on website", "base js placement", "base js implementation"],
-      "answer": "Here are the steps: <br>1. Hover on 'Add a website'<br>2. Choose between 'Standard' or 'Shopify', or 'Magento'.<!--part-->3. Select the Domain Type (HTTP/HTTPS) and enter the Website URL and save<br>4. Ensure the correct domain prefix is added i.e whether 'www' is included<!--part-->5. After saving the web asset, click on GET JAVASCRIPT SDK and copy the code. Then add the code in the head section of the site.",
+      "answer": "Here are the steps: <br>1. Hover on 'Add a website'<br>2. Click on Standard.<!--part-->3. Select the Domain Type (HTTP/HTTPS) and enter the Website URL and save<br>4. Ensure the correct domain prefix is added i.e whether 'www' is included<!--part-->5. After saving the web asset, click on GET JAVASCRIPT SDK and copy the code. <b>Then add the code in the head section of the site</b>.",
       "suggestion": "false"
     },
     {
@@ -236,7 +236,7 @@
       "qid": "2-1-1-4",
       "question": "FCM setup",
       "tags": ["fcm setup"],
-      "answer": "To configure Firebase Cloud Messaging (FCM) for Netcore's Web SDK, you need to set up your Firebase project, obtain the necessary credentials, and integrate them into the Netcore platform. This enables push notification capabilities for your web application.<br>Please check the full guide <br><a target='_blank' href='https://developer.netcorecloud.com/docs/fcm-configuration'>here</a>",
+      "answer":"Make sure you have the following handy.<br>1. apikey<br>2. projectId<br>3. messagesenderId<br>4. appId<br>5. Private key generated under service accounts<br><br>Then edit the website and enable Browser push and configures the FCM details and save the config<br><br>Now click on GET JAVASCRIPT SDK and locate an sw.js file at the top of the popup.<br>Downaload the sw.js file (rename if required) and place the file in the root folder of website source code.<br>The file must be accessible via https://<WEBSITE_URL/sw.js<br>Please check the full guide <br><a target='_blank' href='https://developer.netcorecloud.com/docs/fcm-configuration'>here</a>",
       "suggestion": "false"
     },
 
