@@ -229,14 +229,14 @@
       "qid": "2-1-1-3",
       "question": "Setup User tracking",
       "tags": ["user tracking"],
-      "answer": "Follow these steps to pass the user attributes to Smartech dashboard.<br>1. Create the attributes on the dashboard under Audience - Attributes section on the dashboard in case they are not created.<br>2. Note that attributes (keys) are represented in upper case and have to be used in the same way in the Smartech's contact JS call.<br><!--part-->3. The below JS can be configured under user registration / user login / profile submits & updates / any form submits including lead submission.<br><br> DEBASISH GIVE THE CONTACT JS IN THE POPUP",
+      "answer": "Follow these steps to pass the user attributes to Smartech dashboard.<br>1. Create the attributes on the dashboard under Audience - Attributes section on the dashboard in case they are not created.<br>2. Note that attributes (keys) are represented in upper case and have to be used in the same way in the Smartech's contact JS call.<br><!--part-->3. The below JS can be configured under user registration / user login / profile submits & updates / any form submits including lead submission.<br> <div class='popup-code-trigger'>Click here to view the code</div><pre class='popup-code-content' style='display:none;'>&lt;script src=\"//cdnt.netcoresmartech.com/smartechclient.js\"&gt;&lt;/script&gt;\n&lt;script&gt;\n  smartech(\"create\", \"&lt;Smartech Panel identifier&gt;\");\n  smartech(\"register\", \"&lt;Website Identifier&gt;\");\n  smartech(\"identify\", \"&lt;Unique user identifier/Primary Key of the smartech panel&gt;\");\n  smartech(\"dispatch\", \"page browse\", {\"page_url\" : window.location.href});\n&lt;/script&gt;</pre>",
       "suggestion": "false"
     },
     {
       "qid": "2-1-1-4",
       "question": "Web Push setup",
       "tags": ["fcm setup", "browser push", "browser push setup", "web push", "web push setup"],
-      "answer":"Make sure you have the following handy from your FCM account.<br>1. apikey<br>2. projectId<br>3. messagesenderId<br>4. appId<br>5. Private key generated under service accounts<br>Then edit the website and enable Browser push and configure the FCM details and save the config<br><!--part-->Now click on GET JAVASCRIPT SDK and locate an sw.js file at the top of the popup.<br>Downaload the sw.js file (rename if required) and place the file in the root folder of website source code.<br>The file must be accessible via https://<WEBSITE_URL>/sw.js<br>Please check the full guide <a target='_blank' href='https://developer.netcorecloud.com/docs/fcm-configuration'>here</a>",
+      "answer": "Make sure you have the following handy from your FCM account.<br>1. apikey<br>2. projectId<br>3. messagesenderId<br>4. appId<br>5. Private key generated under service accounts<br>Then edit the website and enable Browser push and configure the FCM details and save the config<br><!--part-->Now click on GET JAVASCRIPT SDK and locate an sw.js file at the top of the popup.<br>Downaload the sw.js file (rename if required) and place the file in the root folder of website source code.<br>The file must be accessible via https://{YOUR_WEBSITE_URL}/sw.js<br>Please check the full guide <a target='_blank' href='https://developer.netcorecloud.com/docs/fcm-configuration'>here</a>",
       "suggestion": "false"
     },
 
