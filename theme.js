@@ -232,6 +232,10 @@ const renderAnswerInParts = (container, html) => {
     wrapper.appendChild(partDiv);
     currentIndex++;
 
+    // Re-activate popups after each part
+    enableCodeBlockPopups();
+    enableImagePopups(); 
+
     // Move the next button to the bottom
     if (wrapper.contains(nextBtn)) wrapper.removeChild(nextBtn);
     if (currentIndex < parts.length) {
