@@ -352,6 +352,7 @@ li.chat.incoming+.incoming {
     transition: background 0.2s ease;
 }
 .code-copy {
+    display: none;
     margin-left: 10px;
     position: absolute;
     top: 10px;
