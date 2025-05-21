@@ -208,7 +208,7 @@
       "qid": "2-1-1",
       "question": "Initiate Smartech JS integration",
       "tags": ["direct js integration", "direct js implementation"],
-      "answer": "Follow these simple four steps to integrate Smartech JS: <br>1. Create an website asset in the dashboard to get the Javascript  <br>2. Web Push Notification setup <!--part--><br>3. Users behavioural (events) tracking <br>4. Users demographic (profile) collection.",
+      "answer": "Follow these simple four steps to integrate Smartech JS: <br>1. Create an website asset in the dashboard to get the Javascript  <br>2. Web Push Notification setup <!--part-->3. Users behavioural (events) tracking <br>4. Users demographic (profile) collection.",
       "suggestion": "true"
     },
     {
