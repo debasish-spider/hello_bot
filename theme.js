@@ -1,11 +1,8 @@
-let askedQIDs = [];
 let parentFollowupMap = {};
+let currentParentQID = null;
+let visitedChildren = [];
 
-const trackAskedQID = (qid) => {
-  if (!askedQIDs.includes(qid)) askedQIDs.push(qid);
-};
 
-// your existing selectors and variables...
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
@@ -32,32 +29,109 @@ fetch("https://debasish-spider.github.io/hello_bot/sample2.json")
   })
   .catch(err => console.error("Failed to load FAQ data", err));
 
-// ... keep your placeholder animation code unchanged ...
+const startRotatingPlaceholders = () => {
+  const suggestedQuestions = faqData.filter(f => f.suggestion === "false").map(f => f.question);
+  if (!suggestedQuestions.length) return;
 
-const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
+  const deletePlaceholder = (text, index) => {
+    if (userInteracted) return;
+    if (index >= 0) {
+      chatInput.placeholder = text.substring(0, index);
+      setTimeout(() => deletePlaceholder(text, index - 1), 30);
+    } else {
+      placeholderIndex = (placeholderIndex + 1) % suggestedQuestions.length;
+      typePlaceholder(suggestedQuestions[placeholderIndex], 0);
+    }
+  };
 
-const showFollowupSuggestions = (qids, currentParent = null) => {
+  const typePlaceholder = (text, index = 0) => {
+    if (userInteracted) return;
+    if (index <= text.length) {
+      chatInput.placeholder = text.substring(0, index) + "|";
+      setTimeout(() => typePlaceholder(text, index + 1), 50);
+    } else {
+      setTimeout(() => deletePlaceholder(text, text.length), 1500);
+    }
+  };
+
+  typePlaceholder(suggestedQuestions[placeholderIndex]);
+};
+
+const getChildren = (qid) => {
+  const map = faqMapping.find(m => m.qid === qid);
+  return map?.children || [];
+};
+
+const showInitialSuggestions = () => {
+  const welcomeLi = document.createElement("li");
+  welcomeLi.classList.add("chat", "incoming");
+  welcomeLi.innerHTML = `
+    <span class="material-symbols-outlined">smart_toy</span>
+    <p>Welcome, I am your virtual agent.<br>How can I help you today? Chat with me or click on the options below</p>`;
+  chatbox.appendChild(welcomeLi);
+
+  const suggestionLi = document.createElement("li");
+  suggestionLi.classList.add("chat", "incoming");
+  const buttonsHtml = faqData
+    .filter(f => f.suggestion === "true")
+    .map(f => `<button class="suggestion-btn">${f.question}</button>`)
+    .join(" ");
+  suggestionLi.innerHTML = `<span class="material-symbols-outlined">smart_toy</span><div class="suggestion-buttons">${buttonsHtml}</div>`;
+  chatbox.appendChild(suggestionLi);
+  chatbox.scrollTo(0, chatbox.scrollHeight);
+
+  suggestionLi.querySelectorAll(".suggestion-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      chatInput.value = btn.textContent;
+      userInteracted = true;
+      chatInput.placeholder = "Enter your queries...";
+      handleChat();
+    });
+  });
+};
+
+const parseMarkdownLinks = (text) => {
+  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  return text.replace(linkRegex, '<a href="$2" target="_blank">$1</a>');
+};
+
+const createChatLi = (message, className) => {
+  const chatLi = document.createElement("li");
+  chatLi.classList.add("chat", className);
+  const content = className === "outgoing"
+    ? `<p>${message}</p>`
+    : `<span class="material-symbols-outlined">smart_toy</span><p>${message}</p>`;
+  chatLi.innerHTML = content;
+  return chatLi;
+};
+
+const formatText = (text) => {
+  return text.replace(/\n/g, "<br>").replace(/(\d+\.\s)/g, "<br>$1").replace(/(\•\s)/g, "<br>$1");
+};
+
+const showFollowupSuggestions = (qids) => {
+  const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
   const userMessageNormalized = normalize(userMessage);
 
-  let remainingSuggestions = qids
-    .filter(qid => !askedQIDs.includes(qid))
-    .map(qid => {
-      const faq = faqData.find(f => f.qid === qid);
+  let newSuggestions = qids
+    .map(id => {
+      const faq = faqData.find(f => f.qid === id);
       return faq ? faq.question : null;
     })
     .filter(q => q && normalize(q) !== userMessageNormalized);
 
-  if (!remainingSuggestions.length) {
+  // 🔁 Fallback: If no suggestions, use question with qid: "1"
+  if (!newSuggestions.length) {
     const fallback = faqData.find(f => f.qid === "1");
-    if (fallback) remainingSuggestions = [fallback.question];
+    if (fallback) newSuggestions = [fallback.question];
   }
 
-  if (!remainingSuggestions.length) return;
+  if (!newSuggestions.length) return;
 
   const suggestionLi = document.createElement("li");
   suggestionLi.classList.add("chat", "incoming", "suggestion-group");
 
-  const buttonsHtml = remainingSuggestions
+  const buttonsHtml = newSuggestions
     .map(q => `<button class="suggestion-btn">${q}</button>`)
     .join(" ");
 
@@ -77,8 +151,8 @@ const getGeminiResponse = async (chatElement) => {
   const p = chatElement.querySelector("p");
 
   const faqContext = faqData.map(f => {
-    return `QID: ${f.qid}\nQ: ${f.question}\nTags: ${(f.tags || []).join(", ")}\nA: ${f.answer}`;
-  }).join("\n\n");
+  return `QID: ${f.qid}\nQ: ${f.question}\nTags: ${(f.tags || []).join(", ")}\nA: ${f.answer}`;
+}).join("\n\n");
 
   const mappingContext = faqMapping.map(m => {
     return `QID: ${m.qid} -> Children: ${m.children?.join(", ") || "none"}`;
@@ -116,37 +190,55 @@ User: ${userMessage}
     const data = await res.json();
     const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find anything helpful.";
 
-    const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
-    if (matchedFAQ) trackAskedQID(matchedFAQ.qid);
-
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
     const formatted = parseMarkdownLinks(formatText(answerBlock.trim()));
-
+    
     if (formatted.includes("<!--part-->")) {
-      p.innerHTML = "";
+      p.innerHTML = ""; // Clear only if answer has parts
       renderAnswerInParts(p, formatted);
     } else {
       p.innerHTML = formatted;
     }
-
+    
     enableImagePopups();
     enableCodeBlockPopups();
 
-    if (followupBlock && matchedFAQ) {
+    if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
-
+      const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
+      if (!matchedFAQ) return;
+    
+      // Save followups
       if (!parentFollowupMap[matchedFAQ.qid]) {
         parentFollowupMap[matchedFAQ.qid] = [...followupQIDs];
       }
-
-      const remaining = parentFollowupMap[matchedFAQ.qid].filter(qid => !askedQIDs.includes(qid));
-
-      if (remaining.length) {
-        showFollowupSuggestions(remaining, matchedFAQ.qid);
-      } else {
-        showFollowupSuggestions(["1"]);
+    
+      // Detect if this is a parent
+      if (followupQIDs.length && matchedFAQ.qid) {
+        currentParentQID = matchedFAQ.qid;
+        visitedChildren = [];
+      }
+    
+      // Detect if this is a child
+      if (currentParentQID && parentFollowupMap[currentParentQID]?.includes(matchedFAQ.qid)) {
+        visitedChildren.push(matchedFAQ.qid);
+        const remaining = parentFollowupMap[currentParentQID].filter(qid => !visitedChildren.includes(qid));
+        if (remaining.length) {
+          showFollowupSuggestions(remaining);
+        } else {
+          showFollowupSuggestions(["1"]); // fallback
+          currentParentQID = null;
+          visitedChildren = [];
+        }
+        return;
+      }
+    
+      // Show children if parent selected
+      if (matchedFAQ.qid && parentFollowupMap[matchedFAQ.qid]) {
+        showFollowupSuggestions(parentFollowupMap[matchedFAQ.qid]);
       }
     }
+
 
   } catch (err) {
     p.innerHTML = "Error: " + err.message;
@@ -154,7 +246,6 @@ User: ${userMessage}
     chatbox.scrollTo(0, chatbox.scrollHeight);
   }
 };
-
 const renderAnswerInParts = (container, html) => {
   const parts = html.split("<!--part-->");
   if (parts.length <= 1) {
