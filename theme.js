@@ -1,3 +1,10 @@
+let askedQIDs = [];
+
+const trackAskedQID = (qid) => {
+  if (!askedQIDs.includes(qid)) askedQIDs.push(qid);
+};
+
+
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
@@ -108,14 +115,16 @@ const showFollowupSuggestions = (qids) => {
   const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
   const userMessageNormalized = normalize(userMessage);
 
+  // Filter out QIDs already asked
   let newSuggestions = qids
-    .map(id => {
-      const faq = faqData.find(f => f.qid === id);
+    .filter(qid => !askedQIDs.includes(qid))
+    .map(qid => {
+      const faq = faqData.find(f => f.qid === qid);
       return faq ? faq.question : null;
     })
-    .filter(q => q && normalize(q) !== userMessageNormalized);
+    .filter(Boolean);
 
-  // 🔁 Fallback: If no suggestions, use question with qid: "1"
+  // If all children visited, fallback to default QID = "1"
   if (!newSuggestions.length) {
     const fallback = faqData.find(f => f.qid === "1");
     if (fallback) newSuggestions = [fallback.question];
@@ -185,6 +194,11 @@ User: ${userMessage}
     const data = await res.json();
     const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find anything helpful.";
 
+    const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
+    if (matchedFAQ) trackAskedQID(matchedFAQ.qid);
+
+    
+    
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
     const formatted = parseMarkdownLinks(formatText(answerBlock.trim()));
     
