@@ -113,24 +113,22 @@ const formatText = (text) => {
 };
 const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
 
-const showFollowupSuggestions = (qids) => {
+const showFollowupSuggestions = (qids, parentQID = null) => {
   const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
-  const userMessageNormalized = normalize(userMessage);
 
-  // Filter out QIDs already asked
-  let newSuggestions = qids
-    .filter(qid => !askedQIDs.includes(qid))
+  // If parent is passed and has children, filter out visited ones
+  let filteredQIDs = [...qids];
+  if (parentQID && parentFollowupMap[parentQID]) {
+    filteredQIDs = parentFollowupMap[parentQID].filter(qid => !askedQIDs.includes(qid));
+  }
+
+  // Convert remaining QIDs to questions
+  let newSuggestions = filteredQIDs
     .map(qid => {
       const faq = faqData.find(f => f.qid === qid);
       return faq ? faq.question : null;
     })
     .filter(Boolean);
-
-  // If all children visited, fallback to default QID = "1"
-  if (!newSuggestions.length) {
-    const fallback = faqData.find(f => f.qid === "1");
-    if (fallback) newSuggestions = [fallback.question];
-  }
 
   if (!newSuggestions.length) return;
 
@@ -152,6 +150,7 @@ const showFollowupSuggestions = (qids) => {
     });
   });
 };
+
 
 const getGeminiResponse = async (chatElement) => {
   const p = chatElement.querySelector("p");
@@ -214,29 +213,32 @@ User: ${userMessage}
     enableImagePopups();
     enableCodeBlockPopups();
 
+    const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
+    if (matchedFAQ) trackAskedQID(matchedFAQ.qid);
+    
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
     
-      // Save followup children for this parent if not already tracked
-      const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
-      if (matchedFAQ && !parentFollowupMap[matchedFAQ.qid]) {
-        parentFollowupMap[matchedFAQ.qid] = [...followupQIDs];
+      if (matchedFAQ && followupQIDs.length) {
+        if (!parentFollowupMap[matchedFAQ.qid]) {
+          parentFollowupMap[matchedFAQ.qid] = [...followupQIDs];
+        }
+    
+        const remaining = parentFollowupMap[matchedFAQ.qid].filter(qid => !askedQIDs.includes(qid));
+        if (remaining.length) {
+          showFollowupSuggestions(remaining, matchedFAQ.qid);
+        } else {
+          // All children visited — do not show fallback
+        }
       }
-    
-      // Track this QID as asked
-      if (matchedFAQ) trackAskedQID(matchedFAQ.qid);
-    
-      // Filter remaining followups for this parent
-      const remaining = parentFollowupMap[matchedFAQ?.qid]?.filter(qid => !askedQIDs.includes(qid));
-    
-      if (remaining.length) {
-        showFollowupSuggestions(remaining);
-      } else {
-        // fallback if all followups visited
-        const fallback = faqData.find(f => f.qid === "1");
-        if (fallback) showFollowupSuggestions(["1"]);
+    } else {
+      // No follow-up defined for this FAQ
+      // Optional: you can fallback here only if parent has no child at all
+      if (matchedFAQ && !getChildren(matchedFAQ.qid).length) {
+        showFollowupSuggestions(["1"]);
       }
     }
+
 
 
   } catch (err) {
