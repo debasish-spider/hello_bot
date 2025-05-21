@@ -213,8 +213,7 @@ User: ${userMessage}
     enableImagePopups();
     enableCodeBlockPopups();
 
-    const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
-    if (matchedFAQ) trackAskedQID(matchedFAQ.qid);
+    
     
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
