@@ -1,11 +1,3 @@
-let askedQIDs = [];
-let parentFollowupMap = {};
-
-const trackAskedQID = (qid) => {
-  if (!askedQIDs.includes(qid)) askedQIDs.push(qid);
-};
-
-
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
@@ -111,24 +103,23 @@ const createChatLi = (message, className) => {
 const formatText = (text) => {
   return text.replace(/\n/g, "<br>").replace(/(\d+\.\s)/g, "<br>$1").replace(/(\•\s)/g, "<br>$1");
 };
-const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
 
-const showFollowupSuggestions = (qids, parentQID = null) => {
+const showFollowupSuggestions = (qids) => {
   const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
+  const userMessageNormalized = normalize(userMessage);
 
-  // If parent is passed and has children, filter out visited ones
-  let filteredQIDs = [...qids];
-  if (parentQID && parentFollowupMap[parentQID]) {
-    filteredQIDs = parentFollowupMap[parentQID].filter(qid => !askedQIDs.includes(qid));
-  }
-
-  // Convert remaining QIDs to questions
-  let newSuggestions = filteredQIDs
-    .map(qid => {
-      const faq = faqData.find(f => f.qid === qid);
+  let newSuggestions = qids
+    .map(id => {
+      const faq = faqData.find(f => f.qid === id);
       return faq ? faq.question : null;
     })
-    .filter(Boolean);
+    .filter(q => q && normalize(q) !== userMessageNormalized);
+
+  // 🔁 Fallback: If no suggestions, use question with qid: "1"
+  if (!newSuggestions.length) {
+    const fallback = faqData.find(f => f.qid === "1");
+    if (fallback) newSuggestions = [fallback.question];
+  }
 
   if (!newSuggestions.length) return;
 
@@ -150,7 +141,6 @@ const showFollowupSuggestions = (qids, parentQID = null) => {
     });
   });
 };
-
 
 const getGeminiResponse = async (chatElement) => {
   const p = chatElement.querySelector("p");
@@ -195,11 +185,6 @@ User: ${userMessage}
     const data = await res.json();
     const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't find anything helpful.";
 
-    const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
-    if (matchedFAQ) trackAskedQID(matchedFAQ.qid);
-
-    
-    
     const [answerBlock, followupBlock] = fullText.split("Follow-up:");
     const formatted = parseMarkdownLinks(formatText(answerBlock.trim()));
     
@@ -213,32 +198,10 @@ User: ${userMessage}
     enableImagePopups();
     enableCodeBlockPopups();
 
-    
-    
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
-    
-      if (matchedFAQ && followupQIDs.length) {
-        if (!parentFollowupMap[matchedFAQ.qid]) {
-          parentFollowupMap[matchedFAQ.qid] = [...followupQIDs];
-        }
-    
-        const remaining = parentFollowupMap[matchedFAQ.qid].filter(qid => !askedQIDs.includes(qid));
-        if (remaining.length) {
-          showFollowupSuggestions(remaining, matchedFAQ.qid);
-        } else {
-          // All children visited — do not show fallback
-        }
-      }
-    } else {
-      // No follow-up defined for this FAQ
-      // Optional: you can fallback here only if parent has no child at all
-      if (matchedFAQ && !getChildren(matchedFAQ.qid).length) {
-        showFollowupSuggestions(["1"]);
-      }
+      showFollowupSuggestions(followupQIDs);
     }
-
-
 
   } catch (err) {
     p.innerHTML = "Error: " + err.message;
