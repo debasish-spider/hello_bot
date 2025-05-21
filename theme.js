@@ -1,4 +1,5 @@
 let askedQIDs = [];
+let parentFollowupMap = {};
 
 const trackAskedQID = (qid) => {
   if (!askedQIDs.includes(qid)) askedQIDs.push(qid);
@@ -215,8 +216,28 @@ User: ${userMessage}
 
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
-      showFollowupSuggestions(followupQIDs);
+    
+      // Save followup children for this parent if not already tracked
+      const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
+      if (matchedFAQ && !parentFollowupMap[matchedFAQ.qid]) {
+        parentFollowupMap[matchedFAQ.qid] = [...followupQIDs];
+      }
+    
+      // Track this QID as asked
+      if (matchedFAQ) trackAskedQID(matchedFAQ.qid);
+    
+      // Filter remaining followups for this parent
+      const remaining = parentFollowupMap[matchedFAQ?.qid]?.filter(qid => !askedQIDs.includes(qid));
+    
+      if (remaining.length) {
+        showFollowupSuggestions(remaining);
+      } else {
+        // fallback if all followups visited
+        const fallback = faqData.find(f => f.qid === "1");
+        if (fallback) showFollowupSuggestions(["1"]);
+      }
     }
+
 
   } catch (err) {
     p.innerHTML = "Error: " + err.message;
