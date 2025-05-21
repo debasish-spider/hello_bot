@@ -110,6 +110,7 @@ const createChatLi = (message, className) => {
 const formatText = (text) => {
   return text.replace(/\n/g, "<br>").replace(/(\d+\.\s)/g, "<br>$1").replace(/(\•\s)/g, "<br>$1");
 };
+const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
 
 const showFollowupSuggestions = (qids) => {
   const normalize = str => str.toLowerCase().replace(/[^\w\s]/gi, '').trim();
