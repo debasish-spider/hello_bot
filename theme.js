@@ -1,8 +1,3 @@
-let parentFollowupMap = {};
-let currentParentQID = null;
-let visitedChildren = [];
-
-
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
@@ -205,40 +200,8 @@ User: ${userMessage}
 
     if (followupBlock) {
       const followupQIDs = followupBlock.trim().split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
-      const matchedFAQ = faqData.find(f => normalize(f.question) === normalize(userMessage));
-      if (!matchedFAQ) return;
-    
-      // Save followups
-      if (!parentFollowupMap[matchedFAQ.qid]) {
-        parentFollowupMap[matchedFAQ.qid] = [...followupQIDs];
-      }
-    
-      // Detect if this is a parent
-      if (followupQIDs.length && matchedFAQ.qid) {
-        currentParentQID = matchedFAQ.qid;
-        visitedChildren = [];
-      }
-    
-      // Detect if this is a child
-      if (currentParentQID && parentFollowupMap[currentParentQID]?.includes(matchedFAQ.qid)) {
-        visitedChildren.push(matchedFAQ.qid);
-        const remaining = parentFollowupMap[currentParentQID].filter(qid => !visitedChildren.includes(qid));
-        if (remaining.length) {
-          showFollowupSuggestions(remaining);
-        } else {
-          showFollowupSuggestions(["1"]); // fallback
-          currentParentQID = null;
-          visitedChildren = [];
-        }
-        return;
-      }
-    
-      // Show children if parent selected
-      if (matchedFAQ.qid && parentFollowupMap[matchedFAQ.qid]) {
-        showFollowupSuggestions(parentFollowupMap[matchedFAQ.qid]);
-      }
+      showFollowupSuggestions(followupQIDs);
     }
-
 
   } catch (err) {
     p.innerHTML = "Error: " + err.message;
