@@ -130,63 +130,63 @@
     {
       "qid": "1-2-3",
       "question": "What are the Contact APIs?",
-      "answer": "Contact APIs, also known as Functional APIs, enable you to perform operations such as adding and updating a contact and their details.",
+      "answer": "Contact APIs, also known as Functional APIs, enable you to perform operations such as adding and updating a contact and their details.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/functional-apis'>[here]</a>",
       "tags": ["functional", "contact", "api"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-4",
       "question": "What are the List APIs?",
-      "answer": "List APIs provide functionalities to create, update, and manage contact lists, helping you organize your audience effectively.",
+      "answer": "List APIs provide functionalities to create, update, and manage contact lists, helping you organize your audience effectively.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/list-apis-1'>[here]</a>",
       "tags": ["list", "api", "netcore"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-5",
       "question": "What are the Campaign APIs?",
-      "answer": "Campaign APIs allow you to create, manage, and monitor various campaigns, including email, SMS, and push notifications, facilitating automated customer engagement.",
+      "answer": "Campaign APIs allow you to create, manage, and monitor various campaigns, including email, SMS, and push notifications, facilitating automated customer engagement.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/campaign-apis'>[here]</a>",
       "tags": ["campaign", "api", "netcore"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-6",
       "question": "What is the Email Template API?",
-      "answer": "The Email Template API enables you to create, update, and manage email templates, ensuring consistent and personalized communication with your audience.",
+      "answer": "The Email Template API enables you to create, update, and manage email templates, ensuring consistent and personalized communication with your audience.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/email-template-api'>[here]</a>",
       "tags": ["email", "template", "api"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-7",
       "question": "What is the App Push Notification Campaign API?",
-      "answer": "This API allows you to create and manage push notification campaigns for your mobile applications, enhancing real-time user engagement.",
+      "answer": "This API allows you to create and manage push notification campaigns for your mobile applications, enhancing real-time user engagement.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/app-push-notification-campaign-api'>[here]</a>",
       "tags": ["app", "push", "notification", "api"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-8",
       "question": "What are the UDT APIs?",
-      "answer": "UDT (User Defined Table) APIs enable you to create and manage custom data tables, allowing for more flexible data storage and retrieval tailored to your business needs.",
+      "answer": "UDT (User Defined Table) APIs enable you to create and manage custom data tables, allowing for more flexible data storage and retrieval tailored to your business needs.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/udt-apis'>[here]</a>",
       "tags": ["udt", "user defined table", "api"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-9",
       "question": "What is the Activity API?",
-      "answer": "The Activity API provides access to user activity data, helping you track and analyze user interactions for better engagement strategies.",
+      "answer": "The Activity API provides access to user activity data, helping you track and analyze user interactions for better engagement strategies.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/activity-api'>[here]</a>",
       "tags": ["activity", "api", "netcore"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-10",
       "question": "What are the GDPR APIs?",
-      "answer": "GDPR APIs assist in managing user data privacy preferences, ensuring compliance with data protection regulations by handling opt-ins, opt-outs, and data deletion requests.",
+      "answer": "GDPR APIs assist in managing user data privacy preferences, ensuring compliance with data protection regulations by handling opt-ins, opt-outs, and data deletion requests.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/gdpr-apis'>[here]</a>",
       "tags": ["gdpr", "privacy", "api"],
       "suggestion": "false"
     },
     {
       "qid": "1-2-11",
       "question": "What is the Trigger Push Notifications API?",
-      "answer": "This API allows you to send real-time push notifications to users based on specific triggers or events, enhancing timely and relevant communication.",
+      "answer": "This API allows you to send real-time push notifications to users based on specific triggers or events, enhancing timely and relevant communication.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/netcore-trigger-push-notifications-api'>[here]</a>",
       "tags": ["trigger", "push", "notification", "api"],
       "suggestion": "false"
     },
