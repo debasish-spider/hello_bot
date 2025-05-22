@@ -123,7 +123,7 @@
     {
       "qid": "1-2-2",
       "question": "What is the Audience API?",
-      "answer": "The Audience API allows you to manage your audience data, including creating and managing lists and segments, exporting data, and handling user schemas.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/audience-api '>[here]</a>",
+      "answer": "The Audience API allows you to manage your audience data, including creating and managing lists and segments, exporting data, and handling user schemas.<br><br>Explore details by clicking <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/audience-api'>[here]</a>",
       "tags": ["audience", "api", "netcore"],
       "suggestion": "false"
     },
