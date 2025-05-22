@@ -236,7 +236,7 @@
       "qid": "2-1-1-4",
       "question": "Web Push setup",
       "tags": ["fcm setup", "browser push", "browser push setup", "web push", "web push setup"],
-      "answer": "Make sure you have the following handy from your FCM account. 1. apikey 2. projected 3. messagesenderId 4. appId 5. Private key generated under service accounts<br><br>Then edit the website and enable Browser push and configure the FCM details and save the config<!--part--><br><br>Now click on GET JAVASCRIPT SDK and locate an sw.js file at the top of the popup.<br><br>Downaload the sw.js file (rename if required) and place the file in the root folder of website source code.<!--part--><br><br>The file must be accessible via https://{YOUR_WEBSITE_URL}/sw.js<br>Please check the full guide <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/fcm-configuration'>[here]</a>",
+      "answer": "Make sure you have the following handy from your FCM account. 1. apikey 2. projected 3. messagesenderId 4. appId 5. Private key generated under service accounts<br><br>Then edit the website and enable Browser push and configure the FCM details and save the config<!--part--><br><br>Now click on GET JAVASCRIPT SDK and locate an sw.js file at the top of the popup.<br><br>Downaload the sw.js file (rename if required) and place the file in the root folder of website source code.<!--part--><br><br>The file must be accessible via https://{YOUR_WEBSITE_URL}/sw.js<br><br>Please check the full guide <a style='color:#fff; text-decoration:underline;' target='_blank' href='https://developer.netcorecloud.com/docs/fcm-configuration'>[here]</a>",
       "suggestion": "false"
     },
 
