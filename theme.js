@@ -21,7 +21,8 @@ const logInteraction = (type, message = "") => {
   fetch(LOG_ENDPOINT, {
   method: "POST",
   body: JSON.stringify({ type, message }),
-  headers: { "Content-Type": "application/json" }
+  //headers: { "Content-Type": "application/json" }
+  headers: {"Content-Type": "text/plain;charset=utf-8"}
 });
 };
 
