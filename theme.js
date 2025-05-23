@@ -13,6 +13,16 @@ let userInteracted = false;
 
 const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwdBr6_DQHMqTHDjA1zhPgdlLtHRtBJC6dGF-Bti9EtmFEnUem1DWhhend8qJMCGQhFdQ/exec";
+
+const logInteraction = (type, message = "") => {
+  fetch(LOG_ENDPOINT, {
+    method: "POST",
+    body: JSON.stringify({ type, message }),
+    headers: { "Content-Type": "application/json" }
+  }).catch(err => console.warn("Logging failed", err));
+};
+
 
 fetch("https://debasish-spider.github.io/hello_bot/sample2.json")
   .then(res => res.json())
@@ -80,6 +90,7 @@ const showInitialSuggestions = () => {
       chatInput.value = btn.textContent;
       userInteracted = true;
       chatInput.placeholder = "Enter your queries...";
+      logInteraction("suggestion_click", btn.textContent); // Log suggestion click
       handleChat();
     });
   });
@@ -259,6 +270,8 @@ const handleChat = () => {
   chatInput.value = "";
   chatInput.style.height = `${inputInitHeight}px`;
 
+  logInteraction("user_input", userMessage); // Log typed question
+  
   const outgoingLi = createChatLi(userMessage, "outgoing");
   chatbox.appendChild(outgoingLi);
   chatbox.scrollTo(0, chatbox.scrollHeight);
