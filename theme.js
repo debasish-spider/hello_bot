@@ -13,7 +13,7 @@ let userInteracted = false;
 
 const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-const LOG_ENDPOINT = "https://corsproxy.io/?" + encodeURIComponent("https://script.google.com/macros/s/AKfycbwdBr6_DQHMqTHDjA1zhPgdlLtHRtBJC6dGF-Bti9EtmFEnUem1DWhhend8qJMCGQhFdQ/exec");
+const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwdBr6_DQHMqTHDjA1zhPgdlLtHRtBJC6dGF-Bti9EtmFEnUem1DWhhend8qJMCGQhFdQ/exec";
 
 
 
