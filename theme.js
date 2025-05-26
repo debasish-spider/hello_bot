@@ -13,10 +13,8 @@ let userInteracted = false;
 
 const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwdBr6_DQHMqTHDjA1zhPgdlLtHRtBJC6dGF-Bti9EtmFEnUem1DWhhend8qJMCGQhFdQ/exec";
 
-
-
+/*const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwdBr6_DQHMqTHDjA1zhPgdlLtHRtBJC6dGF-Bti9EtmFEnUem1DWhhend8qJMCGQhFdQ/exec";
 const logInteraction = (type, message = "") => {
   fetch(LOG_ENDPOINT, {
   method: "POST",
@@ -24,6 +22,16 @@ const logInteraction = (type, message = "") => {
   //headers: { "Content-Type": "application/json" }
   headers: {"Content-Type": "text/plain;charset=utf-8"}
 });
+};*/
+
+const LOG_ENDPOINT = "https://webhook.site/d892726b-1920-41cd-ae0d-9404c07a233b"; // webhook URL
+
+const logInteraction = (type, message = "") => {
+  fetch(LOG_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ type, message, timestamp: new Date().toISOString() })
+  }).catch(err => console.warn("Logging failed", err));
 };
 
 
