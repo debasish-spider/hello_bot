@@ -1,5 +1,5 @@
 let isSuggestionClick = false;
-const panelName = window.location.pathname.split('/')[1];
+
 
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
@@ -27,6 +27,7 @@ const logInteraction = (type, message = "") => {
 });
 };*/
 
+const panelName = window.location.pathname.split('/')[1];
 const LOG_ENDPOINT = "https://webhook.site/d892726b-1920-41cd-ae0d-9404c07a233b"; // webhook URL
 
 const logInteraction = (type, message = "") => {
