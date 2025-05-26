@@ -1,3 +1,5 @@
+let isSuggestionClick = false;
+
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
@@ -102,7 +104,7 @@ const showInitialSuggestions = () => {
       chatInput.value = btn.textContent;
       userInteracted = true;
       chatInput.placeholder = "Enter your queries...";
-      logInteraction("suggestion_click", btn.textContent); // Log suggestion click
+      isSuggestionClick = true; // Set flag
       handleChat();
     });
   });
@@ -160,6 +162,7 @@ const showFollowupSuggestions = (qids) => {
   suggestionLi.querySelectorAll(".suggestion-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       chatInput.value = btn.textContent;
+      isSuggestionClick = true; // Set flag
       handleChat();
     });
   });
@@ -282,7 +285,13 @@ const handleChat = () => {
   chatInput.value = "";
   chatInput.style.height = `${inputInitHeight}px`;
 
-  logInteraction("user_input", userMessage); // Log typed question
+  // ✅ Accurate logging
+  if (isSuggestionClick) {
+    logInteraction("suggestion_click", userMessage);
+    isSuggestionClick = false;
+  } else {
+    logInteraction("user_input", userMessage);
+  }
   
   const outgoingLi = createChatLi(userMessage, "outgoing");
   chatbox.appendChild(outgoingLi);
