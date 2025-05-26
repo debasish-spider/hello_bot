@@ -1,4 +1,5 @@
 let isSuggestionClick = false;
+const panelName = window.location.pathname.split('/')[1];
 
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
@@ -32,7 +33,7 @@ const logInteraction = (type, message = "") => {
   fetch(LOG_ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ type, message, timestamp: new Date().toISOString() })
+    body: JSON.stringify({ panel: panelName, type, message, timestamp: new Date().toISOString() })
   }).catch(err => console.warn("Logging failed", err));
 };
 
