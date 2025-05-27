@@ -17,16 +17,6 @@ let userInteracted = false;
 const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
-/*const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwdBr6_DQHMqTHDjA1zhPgdlLtHRtBJC6dGF-Bti9EtmFEnUem1DWhhend8qJMCGQhFdQ/exec";
-const logInteraction = (type, message = "") => {
-  fetch(LOG_ENDPOINT, {
-  method: "POST",
-  body: JSON.stringify({ type, message }),
-  //headers: { "Content-Type": "application/json" }
-  headers: {"Content-Type": "text/plain;charset=utf-8"}
-});
-};*/
-
 const panelName = window.location.pathname.split('/')[1];
 const LOG_ENDPOINT = "https://webhook.site/d892726b-1920-41cd-ae0d-9404c07a233b"; // webhook URL
 
@@ -142,7 +132,7 @@ const showFollowupSuggestions = (qids) => {
     })
     .filter(q => q && normalize(q) !== userMessageNormalized);
 
-  // 🔁 Fallback: If no suggestions, use question with qid: "1"
+  // Fallback: If no suggestions, use question with qid: "1"
   if (!newSuggestions.length) {
     const fallback = faqData.find(f => f.qid === "1");
     if (fallback) newSuggestions = [fallback.question];
@@ -287,7 +277,7 @@ const handleChat = () => {
   chatInput.value = "";
   chatInput.style.height = `${inputInitHeight}px`;
 
-  // ✅ Accurate logging
+  // Accurate logging
   if (isSuggestionClick) {
     logInteraction("suggestion_click", userMessage);
     isSuggestionClick = false;
