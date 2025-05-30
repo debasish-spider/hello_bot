@@ -18,8 +18,8 @@ const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const panelName = window.location.pathname.split('/')[1];
-//const LOG_ENDPOINT = "https://webhook.site/d892726b-1920-41cd-ae0d-9404c07a233b"; // webhook URL
-const LOG_ENDPOINT = "https://hooks.zapier.com/hooks/catch/3430583/2v2nup0/";
+const LOG_ENDPOINT = "https://webhook.site/d892726b-1920-41cd-ae0d-9404c07a233b"; // webhook URL
+//const LOG_ENDPOINT = "https://hooks.zapier.com/hooks/catch/3430583/2v2nup0/";
 
 const logInteraction = (type, message = "") => {
   fetch(LOG_ENDPOINT, {
