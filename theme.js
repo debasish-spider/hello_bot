@@ -403,3 +403,44 @@ chatInput.addEventListener("keydown", (e) => {
 });
 closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+
+// Chatbot UI restriction 
+(function () {
+  const chatbotSelector = ".chatbot";
+  const chatbottoggle =".chatbot-toggler";  
+  const targetPath = "/index.php/assets/website";
+
+  const toggleChatbotVisibility = () => {
+    const shouldShow = window.location.pathname.includes(targetPath);
+    document.querySelectorAll(chatbotSelector).forEach(el => {
+      el.style.display = shouldShow ? "block" : "none";
+    });
+    document.querySelectorAll(chatbottoggle).forEach(el => {
+      el.style.display = shouldShow ? "flex" : "none";
+    });
+  };
+
+  // Observe route changes
+  const observeURLChange = () => {
+    let currentPath = location.pathname;
+
+    setInterval(() => {
+      if (location.pathname !== currentPath) {
+        currentPath = location.pathname;
+        toggleChatbotVisibility();
+      }
+    }, 500);
+  };
+
+  // Wait until DOM is ready
+  const waitForChatbot = setInterval(() => {
+    const exists = document.querySelector(chatbotSelector);
+    if (exists) {
+      clearInterval(waitForChatbot);
+      toggleChatbotVisibility();
+      observeURLChange();
+    }
+  }, 300);
+})();
+
