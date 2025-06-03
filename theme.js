@@ -25,6 +25,7 @@ const LOG_ENDPOINT = "https://hooks.zapier.com/hooks/catch/3430583/2v2nup0/";
 const logInteraction = (type, message = "") => {
   fetch(LOG_ENDPOINT, {
     method: "POST",
+    mode: 'no-cors', // Disable CORS
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ panel: panelName, type, message, timestamp: new Date().toISOString() })
   }).catch(err => console.warn("Logging failed", err));
