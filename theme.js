@@ -14,8 +14,11 @@ let faqMapping = [];
 let placeholderIndex = 0;
 let userInteracted = false;
 
-const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+//const API_KEY = "AIzaSyAiKmAebShetECNonF2fL4gxdC0e77PFgM";
+//const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+const API_KEY = "AIzaSyCMOEyRDT-m_BG9-7iRm9a4BnOu_qJcn-o";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${API_KEY}`;
 
 const panelName = window.location.pathname.split('/')[1];
 const LOG_ENDPOINT = "https://hooks.zapier.com/hooks/catch/3430583/2v2nup0/"; // webhook URL
